@@ -73,7 +73,7 @@ class Entities_Test {
 	@Test
 	void test_update4() {
 		Collidable o = new Osprey();
-		backgroundElement b = new marsh();
+		BackgroundElement b = new Marsh();
 		o.update();
 		assertTrue(o.getX() < b.getWidth());
 	}
@@ -88,7 +88,7 @@ class Entities_Test {
 	@Test
 	void test_update6() {
 		Collidable o = new Osprey();
-		backgroundElement b = new marsh();
+		BackgroundElement b = new Marsh();
 		o.update();
 		assertTrue(o.getX() < b.getHeight());
 	}

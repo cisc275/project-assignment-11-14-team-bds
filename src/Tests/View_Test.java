@@ -11,27 +11,27 @@ class View_Test {
 
 	@Test
 	void test_aspect_ratio() {
-		backgroundElement b = new marsh();
+		BackgroundElement b = new Marsh();
 		assertEquals(b.getWidth(), b.getHeight() );
 	}
 	
 	@Test
 	void test() {
-		marsh marsh1 = new marsh();
-		backgroundElement marsh2 = marsh1;
-		pond pond1 = new pond();
+		Marsh marsh1 = new Marsh();
+		BackgroundElement marsh2 = marsh1;
+		Pond pond1 = new Pond();
 		assertEquals(marsh1,marsh2);
 		assertEquals(0,pond1.fish());
 	}
 	@Test
 	void test_hud() {
-		miniMap map = new miniMap();
-		stick sticks = new stick();
+		MiniMap map = new MiniMap();
+		Stick sticks = new Stick();
 		Powerup powUp = new Powerup();
 		
-		hud Hud = new hud(map, sticks, powUp);
-		miniMap map2 = Hud.getMap();
-		stick sticks2 = Hud.getSticks();
+		HUD Hud = new HUD(map, sticks, powUp);
+		MiniMap map2 = Hud.getMap();
+		Stick sticks2 = Hud.getSticks();
 		Powerup powUp2 = Hud.getPowUp();
 		
 		assertEquals(map, map2);

@@ -7,6 +7,7 @@ import entities.Collidable;
 import entities.Enemy;
 import entities.Osprey;
 import entities.Path;
+import entities.Tree;
 
 public class OspreyModel extends Model {
 	private Bird player = new Osprey();
@@ -68,6 +69,7 @@ public class OspreyModel extends Model {
 		int a = r.nextInt(20);
 		if (a == 0) {
 			entities.add(new Enemy(r.nextInt(400), 0, 125, 100));
+			entities.add(new Tree());
 		}
 	}
 	
