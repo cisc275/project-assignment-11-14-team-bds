@@ -60,8 +60,7 @@ public class OspreyModel extends Model {
 	public List<Collidable> getEntities() {return entities;};
 	
 	private boolean checkBounds(Collidable c) {
-		//This really needs to be implemented later
-		return false;
+		return c.getY() - c.getHeight() > HEIGHT;
 	}
 	
 	private void spawnEnemy() {
