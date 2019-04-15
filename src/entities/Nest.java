@@ -27,4 +27,14 @@ public class Nest implements Collidable {
     public int getY() {
         return 0;
     }
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

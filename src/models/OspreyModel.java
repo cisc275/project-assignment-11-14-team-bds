@@ -52,6 +52,7 @@ public class OspreyModel extends Model {
 				}
 			}
 		}
+		spawnEnemy();
 		spawnPath(lastPath);
 	}
 	@Override

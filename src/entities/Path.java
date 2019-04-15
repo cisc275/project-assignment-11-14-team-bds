@@ -27,7 +27,7 @@ public class Path implements Collidable {
 
 	@Override
 	public void render(Graphics g) {
-		g.setColor(new Color(0,0,255,20));
+		g.setColor(new Color(0,255,0,30));
 		g.fillRect(getX(), getY(), getWidth(), getHeight());
 	}
 

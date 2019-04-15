@@ -17,8 +17,15 @@ public class MenuModel extends Model {
   public void updateCollidables() {}
   @Override
   public List<Collidable> getEntities() {return null;}
+
 @Override
-public void setPlayerDirection(int x, int y) {
+public void setPlayerX(int x) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void setPlayerY(int y) {
+	// TODO Auto-generated method stub
 	
 };
 }
