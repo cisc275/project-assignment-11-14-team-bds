@@ -1,5 +1,5 @@
 package views;
-public class miniMap {
+public class MiniMap {
   public int loc(){
 	return 0;};
   public void update(){};

@@ -1,24 +1,24 @@
 package views;
 import entities.Powerup;
-import entities.stick;
+import entities.Stick;
 
-public class hud{
-  miniMap map;
-  stick sticks;
+public class HUD{
+  MiniMap map;
+  Stick sticks;
   Powerup powUp;
   
-  public hud(miniMap map, stick sticks, Powerup powUp) {
+  public HUD(MiniMap map, Stick sticks, Powerup powUp) {
 	  this.map = map;
 	  this.sticks = sticks;
 	  this.powUp = powUp;
   }
-  public hud() {}
+  public HUD() {}
   
-  public miniMap getMap() {
+  public MiniMap getMap() {
 	  return this.map;
   }
   
-  public stick getSticks() {
+  public Stick getSticks() {
 	  return this.sticks;
   }
   

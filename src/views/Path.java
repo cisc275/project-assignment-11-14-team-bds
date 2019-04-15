@@ -1,5 +1,5 @@
 package views;
-public class path extends backgroundElement {
+public class Path extends BackgroundElement {
 	  public void place(){};
 	  public void render() {};
 	  public void update() {};

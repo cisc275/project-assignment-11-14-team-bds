@@ -1,5 +1,5 @@
 package views;
-public class pond extends backgroundElement {
+public class Pond extends BackgroundElement {
   public void place(){};
   public int fish(){
 	return 0;

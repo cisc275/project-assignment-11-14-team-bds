@@ -1,5 +1,5 @@
 package entities;
-public class stick {
+public class Stick {
   public int counter() {
 	return 0;
 }
