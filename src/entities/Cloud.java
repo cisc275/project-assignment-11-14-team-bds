@@ -1,4 +1,6 @@
 package entities;
+import java.awt.Graphics;
+
 public class Cloud implements Collidable {
     @Override
     public boolean collideWith(Collidable that){
@@ -9,7 +11,7 @@ public class Cloud implements Collidable {
         return;
     }
     @Override
-    public void render() {
+    public void render(Graphics g) {
         return;
     }
     @Override
@@ -24,4 +26,13 @@ public class Cloud implements Collidable {
     public int getY() {
         return 0;
     }
+    @Override
+    public int getWidth() {
+    	return 0;
+    }
+    @Override
+    public int getHeight() {
+    	return 0;
+    }
 }
+
