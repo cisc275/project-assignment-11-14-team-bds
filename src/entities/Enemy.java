@@ -1,55 +1,61 @@
 package entities;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Enemy implements Collidable{
 
+	protected int xPos;
+	protected int yPos;
+	
+	protected int width;
+	protected int height;
+	
+	public Enemy(int x, int y, int w, int h) {
+		this.xPos = x;
+		this.yPos = y;
+		this.width = w;
+		this.height = h;
+	}
+	
 	@Override
 	public boolean collideWith(Collidable that) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void onCollide(Collidable that) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub
-		
+		g.setColor(new Color(0,0,255));
+		g.fillRect(getX(), getY(), getWidth(), getHeight());
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		this.yPos += 10;
 	}
 
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return xPos;
 	}
 
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return yPos;
 	}
 
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return width;
 	}
 
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return height;
 	}
 
 }

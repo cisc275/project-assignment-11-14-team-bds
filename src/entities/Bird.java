@@ -1,5 +1,6 @@
 package entities;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Bird implements Collidable{
@@ -24,23 +25,31 @@ public class Bird implements Collidable{
 	public void setYVelocity(int x) {
 		this.yDir = x;
 	}
-	public void eat(){
-		health += 15;
+	
+	public void setYVelocity() {
+		this.yDir = 2;
 	}
-	public int getHealth(){
-		return health;
+	public void setXVelocity() {
+		this.xDir = 0;
 	}
 
     @Override
     public boolean collideWith(Collidable that){
+    	if (this.getX() > that.getX() && this.getX() < (that.getX() + that.getWidth())) {
+    		if (this.getY() > that.getY() && this.getY() < (that.getY() + that.getHeight())) {
+    			return true;
+    		}
+    	}
         return false;
     }
     @Override
     public void onCollide(Collidable that){
+    	System.out.println("Collided");
         return;
     }
     @Override
     public void render(Graphics g) {
+    	g.setColor(new Color(255,0,0));
         g.fillOval(xPos, yPos, width, height);
     }
     @Override
