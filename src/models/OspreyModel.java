@@ -32,7 +32,7 @@ public class OspreyModel extends Model {
 		if (x != 0)
 			player.setYVelocity(x);
 		else 
-			player.setYVelocity();
+			player.setYVelocity(2);
 	}
 	@Override
 	public void updateCollidables() {
@@ -75,6 +75,12 @@ public class OspreyModel extends Model {
 		Random r = new Random();
 		int offset = r.nextInt(100) - 50;
 		Path p = new Path(prev.getX() + offset, 0, 150, 10);
+		if (p.getX() > this.WIDTH) {
+			p = new Path(this.WIDTH, p.getY(), p.getWidth(), p.getHeight());
+		}
+		else if (p.getX() < 0) {
+			p = new Path(0, p.getY(), p.getWidth(), p.getHeight());
+		}
 		entities.add(p);
 		lastPath = p;
 	}
