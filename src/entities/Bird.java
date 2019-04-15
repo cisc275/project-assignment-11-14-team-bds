@@ -1,26 +1,34 @@
 package entities;
+
+import java.awt.Graphics;
+
 public class Bird implements Collidable{
-	int health;
-	Object powerUp;
-	int xPos;
-	int yPos;
-	Bird(){
+	private int health;
+	protected int xPos;
+	protected int yPos;
+	
+	protected int width = 20;
+	protected int height = 20;
+	
+	protected int xDir;
+	protected int yDir;
+	
+	public Bird(){
 		this.health = 100;
 		this.xPos = 0;
 		this.yPos = 0;
 	}
-	public void move(int x, int y){
-		xPos += x;
-		yPos += y;
+	public void setXVelocity(int x) {
+		this.xDir = x;
+	}
+	public void setYVelocity(int x) {
+		this.yDir = x;
 	}
 	public void eat(){
 		health += 15;
 	}
 	public int getHealth(){
 		return health;
-	}
-	public void updatePowerUp(Object power_up){
-		powerUp = power_up;
 	}
 
     @Override
@@ -32,20 +40,21 @@ public class Bird implements Collidable{
         return;
     }
     @Override
-    public void render() {
-        return;
+    public void render(Graphics g) {
+        g.drawOval(xPos, yPos, width, height);
     }
     @Override
     public void update() {
-        return;
+        this.xPos += this.xDir;
+        this.yPos += this.yDir;
     }
     @Override
     public int getX(){
-        return 0;
+        return xPos;
     }
     @Override
     public int getY() {
-        return 0;
+        return yPos;
     }
 
 }

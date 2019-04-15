@@ -3,11 +3,14 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import controllers.Controller;
+import entities.Collidable;
+import models.OspreyModel;
 import views.View;
 
 public class MenuScreen extends View{
@@ -45,7 +48,7 @@ public class MenuScreen extends View{
 			@Override
 			public void actionPerformed(ActionEvent e ) {
 				System.out.println("Osprey");
-				controller.switchInstance(null, new OspreyLandScreen(frame));
+				controller.switchInstance(new OspreyModel() , new OspreyLandScreen(frame));
 			}
 		});
 		buttonFactory(buttons, "Clapper Rail", new ActionListener() {
@@ -61,6 +64,12 @@ public class MenuScreen extends View{
 				System.exit(0);
 			}
 		});
+	}
+
+	@Override
+	public void draw(List<Collidable> list) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

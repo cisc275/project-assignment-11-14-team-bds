@@ -1,5 +1,7 @@
 package entities;
 
+import java.awt.Graphics;
+
 public class Fox implements Collidable {
     @Override
     public boolean collideWith(Collidable that){
@@ -10,7 +12,7 @@ public class Fox implements Collidable {
         return;
     }
     @Override
-    public void render() {
+    public void render(Graphics g) {
         return;
     }
     @Override

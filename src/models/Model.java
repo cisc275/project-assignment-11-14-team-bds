@@ -5,8 +5,12 @@ import entities.*;
 
 
 public abstract class Model {
-  public abstract void start();
-  public abstract void updateCollidables();
-  public abstract Collection<Collidable> getEntities(); 
+	protected int WIDTH = 640;
+	protected int HEIGHT = 480;
+	
+	public abstract void setPlayerX(int x);
+	public abstract void setPlayerY(int y);
+	public abstract void updateCollidables();
+	public abstract List<Collidable> getEntities(); 
   
 }

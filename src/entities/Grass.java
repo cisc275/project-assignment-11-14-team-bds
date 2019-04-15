@@ -1,4 +1,7 @@
 package entities;
+
+import java.awt.Graphics;
+
 public class Grass implements Collidable {
     @Override
     public boolean collideWith(Collidable that){
@@ -9,7 +12,7 @@ public class Grass implements Collidable {
         return;
     }
     @Override
-    public void render() {
+    public void render(Graphics g) {
         return;
     }
     @Override
