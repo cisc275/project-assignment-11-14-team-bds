@@ -45,6 +45,7 @@ public class OspreyModel extends Model {
 			if (!player.equals(c)) {
 				if (player.collideWith(c)) {
 					player.onCollide(c);
+					c.onCollide(player);
 				}
 			}
 		}

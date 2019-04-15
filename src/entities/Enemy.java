@@ -11,6 +11,10 @@ public class Enemy implements Collidable{
 	protected int width;
 	protected int height;
 	
+	public Enemy() {
+		this(20,20,20,20);
+	}
+	
 	public Enemy(int x, int y, int w, int h) {
 		this.xPos = x;
 		this.yPos = y;

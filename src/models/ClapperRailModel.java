@@ -2,21 +2,25 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import entities.Bird;
 import entities.Clapper_Rail;
 import entities.Collidable;
+import entities.Fox;
 import entities.Osprey;
 
 public class ClapperRailModel extends Model {
   
 	private Bird player = new Clapper_Rail();
+	private Fox enemy = new Fox(300,300, 75, 75);
 	private List<Collidable> entities = new ArrayList<>() ;
 	
 	public ClapperRailModel() {
 		super();
 		entities.add(player);
+		entities.add(enemy);
 	}
 	
 	@Override
@@ -30,10 +34,30 @@ public class ClapperRailModel extends Model {
 	}
 	@Override
 	public void updateCollidables() {
-		for (Collidable c : entities) {
+		Iterator<Collidable> i = entities.iterator();
+		enemy.findBird(player);
+		while (i.hasNext()) {
+			Collidable c = i.next();
 			c.update();
+			
+			if (checkBounds(c)) {
+				i.remove();
+			}
+			
+			if (!player.equals(c)) {
+				if (player.collideWith(c)) {
+					player.onCollide(c);
+					c.onCollide(player);
+				}
+			}
 		}
 	}
+	
+	private boolean checkBounds(Collidable c) {
+		//This really needs to be implemented later
+		return false;
+	}
+	
 	@Override
 	public List<Collidable> getEntities() {return entities;};
   

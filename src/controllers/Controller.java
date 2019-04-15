@@ -36,7 +36,7 @@ public class Controller {
 		EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Timer time = new Timer(100, new AbstractAction() {
+                Timer time = new Timer(50, new AbstractAction() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                         	model.updateCollidables();
