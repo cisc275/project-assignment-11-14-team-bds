@@ -1,7 +1,6 @@
 package models;
 
 import java.util.*;
-import java.util.Collection;
 
 import entities.Bird;
 import entities.Collidable;

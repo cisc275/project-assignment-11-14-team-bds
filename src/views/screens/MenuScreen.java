@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 
 import controllers.Controller;
 import entities.Collidable;
+import models.ClapperRailModel;
 import models.OspreyModel;
 import views.View;
 
@@ -55,7 +56,7 @@ public class MenuScreen extends View{
 			@Override
 			public void actionPerformed(ActionEvent e ) {
 				System.out.println("clap");
-				controller.switchInstance(null, new ClapperScreen(frame));
+				controller.switchInstance(new ClapperRailModel(), new ClapperScreen(frame));
 			}
 		});
 		buttonFactory(buttons, "Exit", new ActionListener() {

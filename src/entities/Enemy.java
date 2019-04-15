@@ -40,4 +40,16 @@ public class Enemy implements Collidable{
 		return 0;
 	}
 
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

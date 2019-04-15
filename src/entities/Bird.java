@@ -41,7 +41,7 @@ public class Bird implements Collidable{
     }
     @Override
     public void render(Graphics g) {
-        g.drawOval(xPos, yPos, width, height);
+        g.fillOval(xPos, yPos, width, height);
     }
     @Override
     public void update() {
@@ -56,5 +56,13 @@ public class Bird implements Collidable{
     public int getY() {
         return yPos;
     }
+	@Override
+	public int getWidth() {
+		return this.width;
+	}
+	@Override
+	public int getHeight() {
+		return this.height;
+	}
 
 }
