@@ -1,5 +1,6 @@
 package entities;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Powerup implements Collidable {
@@ -9,10 +10,17 @@ public class Powerup implements Collidable {
     }
     @Override
     public void onCollide(Collidable that){
+    	// is there a better way of doing this?
+    	if(that instanceof Bird) {
+    		giveEffect((Bird)that);
+    		
+    	}
         return;
     }
     @Override
     public void render(Graphics g) {
+    	g.setColor(Color.YELLOW);
+    	g.fillOval(getX(), getY(), getWidth(), getHeight());
         return;
     }
     @Override
@@ -21,24 +29,27 @@ public class Powerup implements Collidable {
     }
     @Override
     public int getX(){
-        return 0;
+    	//TEMP
+        return 320;
     }
     @Override
     public int getY() {
-        return 0;
-    }
-
-    public void giveEffect(Collidable that) {
-        return;
+    	//TEMP
+        return 240;
     }
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		//temp?
+		return 50;
 	}
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		//temp?
+		return 50;
+	}
+	
+	public void giveEffect(Bird bird) {
+		System.out.println("got speed powerup!");
+		bird.giveTimedPowerup(BirdProperties.SPEEDUP, 5000);
 	}
 }

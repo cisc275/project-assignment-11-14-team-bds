@@ -6,6 +6,7 @@ import entities.Bird;
 import entities.Collidable;
 import entities.Enemy;
 import entities.Osprey;
+import entities.Powerup;
 import entities.Path;
 import entities.Tree;
 
@@ -18,6 +19,7 @@ public class OspreyModel extends Model {
 	public OspreyModel() {
 		super();
 		entities.add(player);
+		entities.add(new Powerup());
 	}
 	
 	@Override
