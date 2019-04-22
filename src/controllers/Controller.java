@@ -55,27 +55,37 @@ public class Controller {
 			@Override
 			public void keyPressed(KeyEvent e){
 				int a = e.getKeyCode();
-				if (a == KeyEvent.VK_UP) {
+				switch(a) {
+				case KeyEvent.VK_UP:
 					model.setPlayerY(-BIRD_Y);
-				} else if (a == KeyEvent.VK_DOWN) {
+					break;
+				case KeyEvent.VK_DOWN:
 					model.setPlayerY(BIRD_Y);
-				} else if (a == KeyEvent.VK_LEFT) {
+					break;
+				case KeyEvent.VK_LEFT:
 					model.setPlayerX(-BIRD_X);
-				} else if (a == KeyEvent.VK_RIGHT) {
+					break;
+				case KeyEvent.VK_RIGHT:
 					model.setPlayerX(BIRD_X);
+					break;
 				}
 			}
 			@Override
 			public void keyReleased(KeyEvent e) {
 				int a = e.getKeyCode();
-				if (a == KeyEvent.VK_UP) {
+				switch(a) {
+				case KeyEvent.VK_UP:
 					model.setPlayerY(0);
-				} else if (a == KeyEvent.VK_DOWN) {
+					break;
+				case KeyEvent.VK_DOWN:
 					model.setPlayerY(0);
-				} else if (a == KeyEvent.VK_LEFT) {
+					break;
+				case KeyEvent.VK_LEFT:
 					model.setPlayerX(0);
-				} else if (a == KeyEvent.VK_RIGHT) {
+					break;
+				case KeyEvent.VK_RIGHT:
 					model.setPlayerX(0);
+					break;
 				}
 			}
 			@Override
