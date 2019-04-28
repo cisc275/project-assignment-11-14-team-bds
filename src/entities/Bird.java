@@ -1,10 +1,17 @@
 package entities;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 
-public class Bird implements Collidable{
+import javax.swing.AbstractAction;
+import javax.swing.Timer;
+
+public class Bird implements Collidable {
 	private int health;
+	private boolean invincible = false;
+	
 	protected int xPos;
 	protected int yPos;
 	
@@ -13,6 +20,7 @@ public class Bird implements Collidable{
 	
 	protected int xDir;
 	protected int yDir;
+	private float speedMultiplier = 1f;
 	
 	public Bird(){
 		this.health = 100;
@@ -33,6 +41,25 @@ public class Bird implements Collidable{
 		this.xDir = 0;
 	}
 
+	public void giveTimedPowerup(BirdProperties prop, int timeActive) {
+		//add a timer to this somehow, return to default state after done
+		setProperties(prop);
+		EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Timer time = new Timer(timeActive, new AbstractAction() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                        	System.out.println("powerup ran out!");
+                        	setProperties(BirdProperties.DEFAULT);
+                        }
+                    });
+                time.setRepeats(false); //only perform action once
+                time.start();
+            }
+		});
+	}
+	
     @Override
     public boolean collideWith(Collidable that){
     	if (this.getX() > that.getX() && this.getX() < (that.getX() + that.getWidth())) {
@@ -54,8 +81,8 @@ public class Bird implements Collidable{
     }
     @Override
     public void update() {
-        this.xPos += this.xDir;
-        this.yPos += this.yDir;
+        this.xPos += this.xDir * speedMultiplier;
+        this.yPos += this.yDir * speedMultiplier;
     }
     @Override
     public int getX(){
@@ -72,6 +99,12 @@ public class Bird implements Collidable{
 	@Override
 	public int getHeight() {
 		return this.height;
+	}
+	
+	//Sets properties to match given BirdProperties
+	private void setProperties(BirdProperties prop) {
+		invincible = prop.invincible;
+		speedMultiplier = prop.speedMultiplier;
 	}
 
 }
