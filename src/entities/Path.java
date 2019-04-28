@@ -33,7 +33,7 @@ public class Path implements Collidable {
 
 	@Override
 	public void update() {
-		yPos += 10;
+		yPos += 5;
 		
 	}
 

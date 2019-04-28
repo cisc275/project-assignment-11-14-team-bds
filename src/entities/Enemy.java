@@ -33,8 +33,10 @@ public class Enemy implements Collidable{
 
 	@Override
 	public void render(Graphics g) {
+		int left = getX() - (getWidth()/2);
+		int top = getY() - (getHeight()/2);
 		g.setColor(new Color(0,0,255));
-		g.fillRect(getX(), getY(), getWidth(), getHeight());
+		g.fillRect(left, top, getWidth(), getHeight());
 	}
 
 	@Override

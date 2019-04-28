@@ -76,8 +76,10 @@ public class Bird implements Collidable {
     }
     @Override
     public void render(Graphics g) {
+		int left = xPos - (width/2);
+		int top = yPos - (height/2);
     	g.setColor(new Color(255,0,0));
-        g.fillOval(xPos, yPos, width, height);
+        g.fillOval(left, top, width, height);
     }
     @Override
     public void update() {
@@ -100,7 +102,14 @@ public class Bird implements Collidable {
 	public int getHeight() {
 		return this.height;
 	}
-	
+
+	public int getXVel() { return xDir; }
+	public int getYVel() { return yDir; }
+
+	public void setLoc(int x, int y) {
+		this.xPos = x;
+		this.yPos = y;
+	}
 	//Sets properties to match given BirdProperties
 	private void setProperties(BirdProperties prop) {
 		invincible = prop.invincible;

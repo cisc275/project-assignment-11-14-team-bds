@@ -2,21 +2,22 @@ package entities;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
-public class Tree implements Collidable {
+public class Tree extends Enemy {
 
-	public static final int WIDTH = 150;
-	public static final int HEIGHT = 50;
+
 	public static final int MOVE_SPEED = 10;
-	private int x = 0;
-	private int y = 0;
-	
-	@Override
-	public boolean collideWith(Collidable that) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
+
+	public Tree(int w, int h) {
+		width = 100;
+		height = 50;
+		Random r = new Random();
+		xPos = r.nextInt(w - width) + (height/ 2);
+		yPos = 0;
+
+	}
 	@Override
 	public void onCollide(Collidable that) {
 		// TODO Auto-generated method stub
@@ -25,39 +26,15 @@ public class Tree implements Collidable {
 
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub
+		int left = xPos - (width/2);
+		int top = yPos - (height/2);
 		g.setColor(Color.GREEN);
-		g.fillRect(x, y, WIDTH, HEIGHT);
+		g.fillRect(left, top, width, height);
 	}
 
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		y += MOVE_SPEED;
+		yPos += MOVE_SPEED;
 	}
-
-	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return x;
-	}
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return y;
-	}
-
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return WIDTH;
-	}
-
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return HEIGHT;
-	}
-	
 }
