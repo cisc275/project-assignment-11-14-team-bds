@@ -29,6 +29,7 @@ public class Enemy implements Collidable{
 
 	@Override
 	public void onCollide(Collidable that) {
+		System.out.print("blahhhhh");
 	}
 
 	@Override

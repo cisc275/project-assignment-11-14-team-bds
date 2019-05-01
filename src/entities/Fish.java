@@ -5,11 +5,19 @@ import java.awt.Graphics;
 public class Fish implements Collidable {
     @Override
     public boolean collideWith(Collidable that){
-        return false;
+    	if (this.getX() > that.getX() && this.getX() < (that.getX() + that.getWidth())) {
+    		if (this.getY() > that.getY() && this.getY() < (that.getY() + that.getHeight())) {
+    			return true;
+    		}
+    	}
+    	else {
+    		return false;
+    	}
+    	return false;
     }
     @Override
     public void onCollide(Collidable that){
-        return;
+    	
     }
     @Override
     public void render(Graphics g) {

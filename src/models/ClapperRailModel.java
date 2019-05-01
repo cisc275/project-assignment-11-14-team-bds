@@ -9,6 +9,7 @@ import entities.Bird;
 import entities.Clapper_Rail;
 import entities.Collidable;
 import entities.Fox;
+import entities.Grass;
 import entities.Osprey;
 
 public class ClapperRailModel extends Model {
@@ -21,6 +22,7 @@ public class ClapperRailModel extends Model {
 		super();
 		entities.add(player);
 		entities.add(enemy);
+		entities.add(new Grass());
 	}
 	
 	@Override
@@ -51,6 +53,9 @@ public class ClapperRailModel extends Model {
 				}
 			}
 		}
+	}
+	public void spawnGrass() {
+		entities.add(new Grass());
 	}
 	
 	private boolean checkBounds(Collidable c) {

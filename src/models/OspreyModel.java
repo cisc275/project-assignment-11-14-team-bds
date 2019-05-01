@@ -3,6 +3,7 @@ package models;
 import java.util.*;
 
 import entities.Bird;
+import entities.Branch;
 import entities.Collidable;
 import entities.Enemy;
 import entities.Osprey;
@@ -74,6 +75,9 @@ public class OspreyModel extends Model {
 			entities.add(new Enemy(r.nextInt(WIDTH), 5, 125, 100));
 		} else if (a == 1) {
 			entities.add(new Tree(WIDTH, HEIGHT));
+		}
+		else if (a%2 == 0){
+			entities.add(new Branch());
 		}
 	}
 	
