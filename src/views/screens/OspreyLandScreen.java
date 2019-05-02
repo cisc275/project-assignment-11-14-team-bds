@@ -28,7 +28,6 @@ public class OspreyLandScreen extends View{
 		frame.setLayout(null);
 		frame.setContentPane(buildScreen());
 		frame.setVisible(true);
-		
 	}
 	
 	public void draw(List<Collidable> list) {

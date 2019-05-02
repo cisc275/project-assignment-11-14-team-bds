@@ -3,6 +3,7 @@ package entities;
 import java.awt.Graphics;
 
 public class Fish implements Collidable {
+	
     @Override
     public boolean collideWith(Collidable that){
     	if (this.getX() > that.getX() && this.getX() < (that.getX() + that.getWidth())) {
