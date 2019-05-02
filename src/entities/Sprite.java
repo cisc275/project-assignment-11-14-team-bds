@@ -1,10 +1,14 @@
 package entities;
 
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.AbstractAction;
+import javax.swing.Timer;
 
 public class Sprite {
 	public static String DEFAULT_SPRITE_PATH = "res/default.png";
@@ -13,6 +17,7 @@ public class Sprite {
 	private BufferedImage[] frames;
 	private int currentFrame = 0;
 	private int numFrames = 0;
+	private Timer timer = null;
 	
 	//Initialize a Sprite using the default graphics (see static variables at top of file)
 	public Sprite() {
@@ -29,12 +34,31 @@ public class Sprite {
 		return frames[currentFrame];
 	}
 	
-	public BufferedImage nextFrame() {
+	private void nextFrame() {
 		currentFrame++;
 		if(currentFrame >= numFrames) {
 			currentFrame = 0;
 		}
-		return frames[currentFrame];
+	}
+	
+	//Set how long in ms it takes to automatically advance to the next frame
+	public void setFrameDisplayTime(int displayTime) {
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+            public void run() {
+                Timer time = new Timer(displayTime, new AbstractAction() {
+                	@Override
+                    public void actionPerformed(ActionEvent e) {
+                		nextFrame();
+                    }
+                });
+                if(timer != null) { //stop previous timer
+                	timer.stop();
+                }
+                timer = time;
+                time.start();
+            }
+		});
 	}
 	
 	public static BufferedImage loadImage(String filePath) {
