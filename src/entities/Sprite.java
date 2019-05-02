@@ -10,6 +10,8 @@ import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Timer;
 
+import views.ImageHandler;
+
 public class Sprite {
 	public static String DEFAULT_SPRITE_PATH = "res/default.png";
 	public static int DEFAULT_SPRITE_FRAMES = 1;
@@ -22,17 +24,17 @@ public class Sprite {
 	//Initialize a Sprite using the default graphics (see static variables at top of file)
 	public Sprite() {
 		numFrames = 1;
-		frames = initializeFrames(loadImage(DEFAULT_SPRITE_PATH));
+		frames = initializeFrames(ImageHandler.loadImage(DEFAULT_SPRITE_PATH));
 	}
 	
 	public Sprite(int numFrames, String imagePath) {
 		this.numFrames = numFrames;
-		frames = initializeFrames(loadImage(imagePath));
+		frames = initializeFrames(ImageHandler.loadImage(imagePath));
 	}
 	
 	public Sprite(int numFrames, int frameStepTime, String imagePath) {
 		this.numFrames = numFrames;
-		frames = initializeFrames(loadImage(imagePath));
+		frames = initializeFrames(ImageHandler.loadImage(imagePath));
 		setFrameStepTime(frameStepTime);
 	}
 	
@@ -65,18 +67,6 @@ public class Sprite {
                 time.start();
             }
 		});
-	}
-	
-	public static BufferedImage loadImage(String filePath) {
-		BufferedImage bufferedImage;
-		File file = new File(filePath);
-        try {
-            bufferedImage = ImageIO.read(file);
-            return bufferedImage;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
 	}
 	
 	private BufferedImage[] initializeFrames(BufferedImage image) {
