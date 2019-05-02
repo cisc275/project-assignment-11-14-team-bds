@@ -30,6 +30,12 @@ public class Sprite {
 		frames = initializeFrames(loadImage(imagePath));
 	}
 	
+	public Sprite(int numFrames, int frameStepTime, String imagePath) {
+		this.numFrames = numFrames;
+		frames = initializeFrames(loadImage(imagePath));
+		setFrameStepTime(frameStepTime);
+	}
+	
 	public BufferedImage getCurrentFrame() {
 		return frames[currentFrame];
 	}
@@ -42,7 +48,7 @@ public class Sprite {
 	}
 	
 	//Set how long in ms it takes to automatically advance to the next frame
-	public void setFrameDisplayTime(int displayTime) {
+	public void setFrameStepTime(int displayTime) {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
             public void run() {
@@ -81,7 +87,7 @@ public class Sprite {
 		else {
 			int frameWidth = image.getWidth()/numFrames;
 			for(int i = 0; i < numFrames; i++) {
-				splitImage[i] = image.getSubimage(i*frameWidth, 0, frameWidth, image.getWidth());
+				splitImage[i] = image.getSubimage(i*frameWidth, 0, frameWidth, image.getHeight());
 			}
 		}
 		
