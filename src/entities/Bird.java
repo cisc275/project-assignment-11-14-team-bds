@@ -40,6 +40,28 @@ public class Bird implements Collidable {
 	public void setXVelocity() {
 		this.xDir = 0;
 	}
+	
+	public void pushBird(int direction, int moveDis) {
+		switch (direction) {
+		case 0: //north
+			yPos -= moveDis;
+			System.out.println("north");
+			break;
+		case 1: //south
+			yPos += moveDis;
+			System.out.println("south");
+			break;
+		case 2: //east
+			xPos += moveDis;
+			System.out.println("east");
+			break;
+		case 3: //west
+			System.out.println("west");
+			xPos -= moveDis;
+			break;
+		
+		}
+	}
 
 	public void giveTimedPowerup(BirdProperties prop, int timeActive) {
 		//add a timer to this somehow, return to default state after done
@@ -71,7 +93,7 @@ public class Bird implements Collidable {
     }
     @Override
     public void onCollide(Collidable that){
-    	System.out.println("Collided");
+    	//System.out.println("Collided");
         return;
     }
     @Override

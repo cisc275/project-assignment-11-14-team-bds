@@ -21,17 +21,27 @@ public class Controller {
 	private final int BIRD_X = 12;
 	private final int BIRD_Y = 20;
 	
+	/*
+	 * Constructor for the controller, takes in a model and a view
+	 */
 	public Controller(Model m, View v) {
 		this.model = m;
 		this.view = v;
 	}
 	
+	/*
+	 * Switch for controller, takes in model and view and sets a keyListener to the view
+	 */
 	public void switchInstance(Model m, View v) {
 		this.model = m;
 		this.view = v;
 		setKeyListener(this.view);
 	}
-	
+	/*
+	 * Starts the game loop with a timer set to take actions every 50 ms
+	 * Every time an action is performed the model's updateCollidables is called
+	 * the view draws the list of entities from the model, and then the render function is called
+	 */
 	public void start() {
 		EventQueue.invokeLater(new Runnable() {
             @Override
@@ -48,7 +58,10 @@ public class Controller {
             }
 		});
 	}
-	
+	/*
+	 * Sets up a key listener to the view which increases the speed of the bird in the model
+	 * depending on which key is pressed and then resets it back to 0 when you let go
+	 */
 	private void setKeyListener(View v) {
 		JFrame frame = v.getFrame();
 		frame.addKeyListener(new KeyListener() {
@@ -96,6 +109,11 @@ public class Controller {
 	public int getKeyPress() {return 0;};
 	public int getMouseLoc() {return 0;};
 	
+	/*
+	 * Creates a controller with the model and view of the menu from where
+	 * the switch is called depending on which game is clicked and then the
+	 * game gets started
+	 */
 	public static void main(String[] args) {
 		Controller c = new Controller(null,null);
 		Model m = new MenuModel();

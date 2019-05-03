@@ -2,6 +2,8 @@ package models;
 
 import java.util.*;
 
+import com.sun.java.swing.plaf.windows.resources.windows;
+
 import entities.Bird;
 import entities.Branch;
 import entities.Collidable;
@@ -10,6 +12,7 @@ import entities.Osprey;
 import entities.Powerup;
 import entities.Path;
 import entities.Tree;
+import entities.Wind;
 
 public class OspreyModel extends Model {
 	private Bird player = new Osprey();
@@ -68,6 +71,7 @@ public class OspreyModel extends Model {
 		return 	(c.getX() > 0 && c.getX() < WIDTH) && (c.getY() > 0 && c.getY() < HEIGHT);
 	}
 	
+	
 	private void spawnEnemy() {
 		Random r = new Random();
 		int a = r.nextInt(40);
@@ -76,8 +80,11 @@ public class OspreyModel extends Model {
 		} else if (a == 1) {
 			entities.add(new Tree(WIDTH, HEIGHT));
 		}
-		else if (a%2 == 0){
+		else if (a == 0){
 			entities.add(new Branch());
+		}
+		else if (a == 3) {
+			entities.add(new Wind(WIDTH, HEIGHT));
 		}
 	}
 	
