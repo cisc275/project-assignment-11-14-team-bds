@@ -4,16 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class Grass implements Collidable {
-	int xpos;
-	int ypos;
-	int width;
-	int height;
+public class Grass extends Collidable {
 	public Grass() {
+	    super(320,240, 0,0);
 		Random r3 = new Random();
-		Random r4 = new Random();
 		this.width = r3.nextInt(100);
-		this.height = r4.nextInt(100);
+		this.height = r3.nextInt(100);
 		
 	}
     @Override
@@ -40,24 +36,5 @@ public class Grass implements Collidable {
     	g.fillOval(left, top,this.width,this.height);}
     @Override
     public void update() {
-        return;
     }
-    @Override
-    public int getX(){
-         return 320;
-    }
-    @Override
-    public int getY() {
-        return 240;
-    }
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return this.width;
-	}
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return this.height;
-	}
 }

@@ -2,7 +2,7 @@ package entities;
 
 import java.awt.Graphics;
 
-public class Nest implements Collidable {
+public class Nest extends Collidable {
     @Override
     public boolean collideWith(Collidable that){
         return false;
@@ -19,22 +19,4 @@ public class Nest implements Collidable {
     public void update() {
         return;
     }
-    @Override
-    public int getX(){
-        return 0;
-    }
-    @Override
-    public int getY() {
-        return 0;
-    }
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

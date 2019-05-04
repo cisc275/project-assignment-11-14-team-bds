@@ -8,30 +8,23 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Timer;
 
-public class Bird implements Collidable {
+public class Bird extends Collidable {
 	private int health;
 	private boolean invincible = false;
-	
-	protected int xPos;
-	protected int yPos;
-	
-	protected int width = 20;
-	protected int height = 20;
 	
 	protected int xDir;
 	protected int yDir;
 	private float speedMultiplier = 1f;
 	
 	public Bird(){
+		super(320, 400, 30,30);
 		this.health = 100;
-		this.xPos = 0;
-		this.yPos = 0;
 	}
 	public void setXVelocity(int x) {
 		this.xDir = x;
 	}
-	public void setYVelocity(int x) {
-		this.yDir = x;
+	public void setYVelocity(int y) {
+		this.yDir = y;
 	}
 	
 	public void setYVelocity() {
@@ -83,47 +76,15 @@ public class Bird implements Collidable {
 	}
 	
     @Override
-    public boolean collideWith(Collidable that){
-    	if (this.getX() > that.getX() && this.getX() < (that.getX() + that.getWidth())) {
-    		if (this.getY() > that.getY() && this.getY() < (that.getY() + that.getHeight())) {
-    			return true;
-    		}
-    	}
-        return false;
-    }
-    @Override
     public void onCollide(Collidable that){
-    	//System.out.println("Collided");
+    	System.out.println("Collision: Bird");
         return;
-    }
-    @Override
-    public void render(Graphics g) {
-		int left = xPos - (width/2);
-		int top = yPos - (height/2);
-    	g.setColor(new Color(255,0,0));
-        g.fillOval(left, top, width, height);
     }
     @Override
     public void update() {
         this.xPos += this.xDir * speedMultiplier;
         this.yPos += this.yDir * speedMultiplier;
     }
-    @Override
-    public int getX(){
-        return xPos;
-    }
-    @Override
-    public int getY() {
-        return yPos;
-    }
-	@Override
-	public int getWidth() {
-		return this.width;
-	}
-	@Override
-	public int getHeight() {
-		return this.height;
-	}
 
 	public int getXVel() { return xDir; }
 	public int getYVel() { return yDir; }

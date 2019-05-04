@@ -4,15 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class Tree extends Enemy {
-
-
-	public static final int MOVE_SPEED = 10;
+public class Tree extends Collidable {
 
 
 	public Tree(int w, int h) {
-		width = 100;
-		height = 50;
+		super(0,0,50,50);
 		Random r = new Random();
 		xPos = r.nextInt(w - width) + (height/ 2);
 		yPos = 0;
@@ -20,7 +16,6 @@ public class Tree extends Enemy {
 	}
 	@Override
 	public void onCollide(Collidable that) {
-		// TODO Auto-generated method stub
 		System.out.println("tree");
 	}
 
@@ -30,11 +25,5 @@ public class Tree extends Enemy {
 		int top = yPos - (height/2);
 		g.setColor(Color.GREEN);
 		g.fillRect(left, top, width, height);
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		yPos += MOVE_SPEED;
 	}
 }
