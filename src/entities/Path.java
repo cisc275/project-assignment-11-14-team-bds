@@ -9,8 +9,14 @@ public class Path extends Collidable {
 		super(x,y,w,h);
 		this.SCREEN_MOVE = 5;
 	}
+
+	@Override
+	public void onCollide(Collidable c) {
+
+	}
+
 	public void render(Graphics g) {
-		g.setColor(new Color(0,255,0,30));
+		g.setColor(new Color(0,0,255,100));
 		g.fillRect(getX(), getY(), getWidth(), getHeight());
 	}
 }

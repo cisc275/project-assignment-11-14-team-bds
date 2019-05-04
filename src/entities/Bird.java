@@ -11,6 +11,7 @@ import javax.swing.Timer;
 public class Bird extends Collidable {
 	private int health;
 	private boolean invincible = false;
+	private boolean wind = false;
 	
 	protected int xDir;
 	protected int yDir;
@@ -34,26 +35,38 @@ public class Bird extends Collidable {
 		this.xDir = 0;
 	}
 	
-	public void pushBird(int direction, int moveDis) {
-		switch (direction) {
-		case 0: //north
-			yPos -= moveDis;
-			System.out.println("north");
-			break;
-		case 1: //south
-			yPos += moveDis;
-			System.out.println("south");
-			break;
-		case 2: //east
-			xPos += moveDis;
-			System.out.println("east");
-			break;
-		case 3: //west
-			System.out.println("west");
-			xPos -= moveDis;
-			break;
-		
+	public void pushBird(int direction, int moveDis, int time) {
+		if (wind) {
+			return;
 		}
+		Timer t = new Timer(time, (e) -> {
+			setXVelocity();
+			setYVelocity();
+			wind = false;
+			System.out.println("YOHOHOHOHO");
+		});
+		t.setRepeats(false);
+		t.start();
+
+		switch (direction) {
+			case 0: //north
+				setYVelocity(-moveDis);
+				System.out.println("north");
+				break;
+			case 1: //south
+				setYVelocity(moveDis);
+				System.out.println("south");
+				break;
+			case 2: //east
+				setXVelocity(moveDis);
+				System.out.println("east");
+				break;
+			case 3: //west
+				System.out.println("west");
+				setXVelocity(-moveDis);
+				break;
+		}
+		wind  = true;
 	}
 
 	public void giveTimedPowerup(BirdProperties prop, int timeActive) {
@@ -77,8 +90,8 @@ public class Bird extends Collidable {
 	
     @Override
     public void onCollide(Collidable that){
-    	System.out.println("Collision: Bird");
-        return;
+    	//System.out.println("Collision: Bird");
+    	that.onCollide(this);
     }
     @Override
     public void update() {

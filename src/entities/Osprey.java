@@ -15,7 +15,9 @@ public class Osprey extends Bird {
 	
 	@Override
     public void render(Graphics g) {
-		g.drawImage(tempSprite.getCurrentFrame(), this.xPos, this.yPos, this.width, this.height, null);
+		int top = this.xPos - (this.width /2);
+		int left = this.yPos - (this.height /2 );
+		g.drawImage(tempSprite.getCurrentFrame(), top, left, this.width, this.height, null);
     }
 	
 	public void Dive(){}

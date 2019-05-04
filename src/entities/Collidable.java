@@ -26,6 +26,9 @@ public abstract class Collidable {
         return false;
 
     }
+
+    public void onCollideBird(Bird b) {
+    }
     public void onCollide(Collidable that) {
         System.out.println("Overload this collision");
     }

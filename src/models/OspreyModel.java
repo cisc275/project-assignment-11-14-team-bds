@@ -19,7 +19,9 @@ public class OspreyModel extends Model {
 	private List<Collidable> entities = new ArrayList<>();
 	
 	private Path lastPath = new Path(300, 0, 100, 20);
-	
+
+	private int prevX;
+	private int prevY;
 	public OspreyModel() {
 		super();
 		entities.add(player);
@@ -43,21 +45,25 @@ public class OspreyModel extends Model {
 	}
 	@Override
 	public void updateCollidables() {
+		prevX = player.getX();
+		prevY = player.getY();
 		Iterator<Collidable> i = entities.iterator();
 		while (i.hasNext()) {
 			Collidable c = i.next();
 			c.update();
+
 			if (!inBounds(c)) {
 				if (player.equals(c)) {
-					player.setLoc(player.getX() - player.getXVel(), player.getY() - player.getYVel());
+					player.setLoc(prevX, prevY);
 				} else {
 					i.remove();
+					continue;
 				}
 			}
+
 			if (!player.equals(c)) {
 				if (player.collideWith(c)) {
 					player.onCollide(c);
-					c.onCollide(player);
 				}
 			}
 		}
@@ -76,15 +82,12 @@ public class OspreyModel extends Model {
 		Random r = new Random();
 		int a = r.nextInt(40);
 		if (a == 2) {
-			entities.add(new Enemy(r.nextInt(WIDTH), 5, 125, 100));
+			//entities.add(new Enemy(r.nextInt(WIDTH), 5, 125, 100));
 		} else if (a == 1) {
 			entities.add(new Tree(WIDTH, HEIGHT));
 		}
-		else if (a == 0){
-			entities.add(new Branch());
-		}
 		else if (a == 3) {
-			entities.add(new Wind(WIDTH, HEIGHT));
+			entities.add(new Wind(r.nextInt(WIDTH), 5, 50,50));
 		}
 	}
 	

@@ -21,9 +21,7 @@ public class Tree extends Collidable {
 
 	@Override
 	public void render(Graphics g) {
-		int left = xPos - (width/2);
-		int top = yPos - (height/2);
 		g.setColor(Color.GREEN);
-		g.fillRect(left, top, width, height);
+		g.fillRect(xPos, yPos, width, height);
 	}
 }
