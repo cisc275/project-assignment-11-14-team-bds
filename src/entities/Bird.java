@@ -9,9 +9,10 @@ import javax.swing.AbstractAction;
 import javax.swing.Timer;
 
 public class Bird extends Collidable {
-	private int health;
+	private int health = 100;
 	private boolean invincible = false;
 	private boolean wind = false;
+	private boolean diving = false;
 	
 	protected int xDir;
 	protected int yDir;
@@ -33,6 +34,24 @@ public class Bird extends Collidable {
 	}
 	public void setXVelocity() {
 		this.xDir = 0;
+	}
+	
+	public boolean isDiving() {
+		return diving;
+	}
+	
+	public void decHealth(int damage) {
+		health -= damage;
+		if (health <= 0) {
+			System.out.println("Game Over!");
+		}
+	}
+	
+	public void incHealth(int damage) {
+		health += damage;
+		if (health >= 100) {
+			health = 100;
+		}
 	}
 	
 	public void pushBird(int direction, int moveDis, int time) {
