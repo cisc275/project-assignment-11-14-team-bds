@@ -1,9 +1,9 @@
 package entities;
-public class Clapper_Rail extends Bird{
+public class ClapperRail extends Bird{
 	private int branches;
 	private boolean invisible;
 	
-	public int num_branch() {
+	public int getNumBranches() {
 		return this.branches;
 	}
 	

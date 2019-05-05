@@ -5,7 +5,6 @@ import java.awt.Graphics;
 
 public class Osprey extends Bird {
 	//time for animation to go to next frame in milliseconds
-	//this is a temporary implementation for demonstration purposes
 	private final int ANIMATION_STEP_TIME = 100;
 	private Sprite tempSprite;
 	
