@@ -18,8 +18,8 @@ public class Controller {
 	private Model model;
 	private View view;
 	
-	private final int BIRD_X = 12;
-	private final int BIRD_Y = 20;
+	private final int BIRD_X = 8;
+	private final int BIRD_Y = 10;
 	
 	/*
 	 * Constructor for the controller, takes in a model and a view

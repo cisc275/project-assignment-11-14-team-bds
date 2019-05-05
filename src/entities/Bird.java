@@ -43,7 +43,6 @@ public class Bird extends Collidable {
 			setXVelocity();
 			setYVelocity();
 			wind = false;
-			System.out.println("YOHOHOHOHO");
 		});
 		t.setRepeats(false);
 		t.start();

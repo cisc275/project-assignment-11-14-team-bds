@@ -94,14 +94,11 @@ public class OspreyModel extends Model {
 	private void spawnPath(Collidable prev) {
 		Random r = new Random();
 		int W = 200;
-		int offset = r.nextInt(W/2) - (W/4);
+		int offset;
+		do {
+			offset = r.nextInt(W / 2) - (W / 4);
+		} while (offset + prev.getX() < 100 || offset + prev.getX() > WIDTH - 100 );
 		Path p = new Path(prev.getX() + offset, 0, W, 5);
-		if (p.getX() > this.WIDTH) {
-			p = new Path(this.WIDTH, p.getY(), p.getWidth(), p.getHeight());
-		}
-		else if (p.getX() < 0) {
-			p = new Path(0, p.getY(), p.getWidth(), p.getHeight());
-		}
 		entities.add(p);
 		lastPath = p;
 	}

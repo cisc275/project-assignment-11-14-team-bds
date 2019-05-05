@@ -16,7 +16,7 @@ public class OspreyLandScreen extends View{
 	List<Collidable> entities = new ArrayList<>();
 	
 	private int backgroundScrollAmount = 0;
-	private final String BG_IMAGE_PATH = "res/osprey_bg.png";
+	private final String BG_IMAGE_PATH = "res/bg.png";
 	private BufferedImage backgroundImage;
 	private int backgroundScrollSpeed = 2;
 	
@@ -55,12 +55,8 @@ public class OspreyLandScreen extends View{
 					backgroundScrollAmount = 0;
 				}
 				
-				g.drawImage(backgroundImage, 0, backgroundScrollAmount-FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT, null);
-				g.drawImage(backgroundImage, 0, backgroundScrollAmount, FRAME_WIDTH, FRAME_HEIGHT, null);
-				
-				
-				g.setColor(new Color(255,0,0));
-				g.drawString("This is the Osprey Game", FRAME_WIDTH / 2, FRAME_HEIGHT / 2);
+				g.drawImage(backgroundImage, 0, backgroundScrollAmount-FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT * 3, null);
+				g.drawImage(backgroundImage, 0, backgroundScrollAmount, FRAME_WIDTH, FRAME_HEIGHT * 3, null);
 				
 				for (Collidable c : entities) {
 					c.render(g);
