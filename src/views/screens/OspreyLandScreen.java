@@ -8,22 +8,30 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import entities.Collidable;
+import entities.Sprite;
 import views.ImageHandler;
 import views.View;
 
 public class OspreyLandScreen extends View{
 	
 	List<Collidable> entities = new ArrayList<>();
-	
+	List<Sprite> sprites = new ArrayList<>();
+
 	private int backgroundScrollAmount = 0;
 	private final String BG_IMAGE_PATH = "res/bg.png";
 	private BufferedImage backgroundImage;
 	private int backgroundScrollSpeed = 2;
-	
+
+	private Sprite TREE1 = new Sprite(1, 1, "res/tree1.png");
+	private Sprite TREE2 = new Sprite(1,1,"res/tree2.png");
+
 	public OspreyLandScreen(JFrame f) {
 		backgroundImage = ImageHandler.loadImage(BG_IMAGE_PATH);
 		frame = f;
 		setScreen(frame);
+
+		sprites.add(TREE1);
+		sprites.add(TREE2);
 	}
 
 	@Override
@@ -59,7 +67,7 @@ public class OspreyLandScreen extends View{
 				g.drawImage(backgroundImage, 0, backgroundScrollAmount, FRAME_WIDTH, FRAME_HEIGHT * 3, null);
 				
 				for (Collidable c : entities) {
-					c.render(g);
+					c.render(g, sprites);
 				}
 			}
 		};

@@ -1,6 +1,8 @@
 package entities;
 
 import java.awt.*;
+import java.util.List;
+import java.util.Collection;
 
 public abstract class Collidable {
     protected int xPos;
@@ -32,6 +34,11 @@ public abstract class Collidable {
     public void onCollide(Collidable that) {
         System.out.println("Overload this collision");
     }
+
+    public void render(Graphics g, List<Sprite> c) {
+        render(g);
+    }
+
     public void render(Graphics g) {
         int left = xPos - (width/2);
         int top = yPos - (height/2);
