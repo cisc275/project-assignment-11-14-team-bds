@@ -4,14 +4,12 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.List;
 
-import javax.swing.Timer;
-import javax.swing.AbstractAction;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import models.*;
-import views.*;
-import views.screens.*;
+import views.View;
 
 public class Controller {
 
@@ -27,15 +25,20 @@ public class Controller {
 	public Controller(Model m, View v) {
 		this.model = m;
 		this.view = v;
+
+		List<JButton> buttons = this.view.getJButtion();
+		buttons.get(0).addActionListener((e) -> setInstance(new OspreyModel(), View.OSPREY));
+		buttons.get(1).addActionListener((e) -> setInstance(new ClapperRailModel(), View.RAIL));
+		buttons.get(2).addActionListener((e) -> System.exit(0));
+		setKeyListener(this.view);
 	}
 	
 	/*
 	 * Switch for controller, takes in model and view and sets a keyListener to the view
 	 */
-	public void switchInstance(Model m, View v) {
+	public void setInstance(Model m, String s) {
 		this.model = m;
-		this.view = v;
-		setKeyListener(this.view);
+		this.view.changePanel(s);
 	}
 	/*
 	 * Starts the game loop with a timer set to take actions every 50 ms
@@ -50,8 +53,7 @@ public class Controller {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                         	model.updateCollidables();
-                        	view.draw(model.getEntities());
-                        	view.render();
+                        	view.render(model.getEntities());
                         }
                     });
                 time.start();
@@ -125,10 +127,10 @@ public class Controller {
 	 * game gets started
 	 */
 	public static void main(String[] args) {
-		Controller c = new Controller(null,null);
 		Model m = new MenuModel();
-		View v = new MenuScreen(c);
-		c.switchInstance(m, v);
+		View v = new View();
+		Controller c = new Controller(m,v);
+		c.setInstance(m, View.MENU);
 		c.start();
 	}
 }

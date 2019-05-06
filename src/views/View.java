@@ -1,18 +1,53 @@
 package views;
 
+import java.awt.*;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.swing.JFrame;
+import javax.smartcardio.Card;
+import javax.swing.*;
 
 import entities.Collidable;
+import views.screens.ClapperScreen;
+import views.screens.MenuScreen;
+import views.screens.OspreyLandScreen;
+import views.screens.Screen;
 
-public abstract class View {
+public class View {
 	protected int FRAME_WIDTH = 640;
 	protected int FRAME_HEIGHT = 480;
-	
-	protected JFrame frame;
-	
-	protected JFrame buildFrame(int w, int h) {
+
+	public static final String MENU = "menu";
+	public static final String OSPREY = "osprey";
+	public static final String RAIL = "rail";
+	public static final String OSPREY_SWIN = "osprey_win";
+	public static final String RAIL_WIN = "rail_win";
+	public static final String QUIZ = "quiz";
+
+	private Map<String, Screen> map = new HashMap<>();
+
+	private  JFrame frame;
+	private JPanel layer;
+	private CardLayout layout;
+	private  Screen screen;
+
+	public View() {
+		frame = buildFrame(FRAME_WIDTH, FRAME_HEIGHT);
+		layout = buildLayout();
+		layer = buildLayer();
+		layer.setLayout(layout);
+		frame.add(layer);
+		layer.revalidate();
+		screen = map.get(MENU);
+	}
+
+	public void render(Collection<Collidable> c) {
+		screen.render(c);
+	}
+
+	private JFrame buildFrame(int w, int h) {
 		JFrame f = new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(w, h);
@@ -20,12 +55,34 @@ public abstract class View {
 		f.setVisible(true);
 		return f;
 	}
-	
+
+	private CardLayout buildLayout() {
+		CardLayout c = new CardLayout();
+		map.put(MENU, new MenuScreen(FRAME_WIDTH,FRAME_HEIGHT));
+		c.addLayoutComponent(map.get(MENU), MENU);
+		map.put(OSPREY, new OspreyLandScreen(FRAME_WIDTH,FRAME_HEIGHT));
+		c.addLayoutComponent(map.get(OSPREY), OSPREY);
+		map.put(RAIL, new ClapperScreen(FRAME_WIDTH,FRAME_HEIGHT));
+		c.addLayoutComponent(map.get(RAIL), RAIL);
+		return c;
+	}
+
+	private JPanel buildLayer() {
+		JPanel layer = new JPanel();
+		layer.add(map.get(MENU), MENU);
+		layer.add(map.get(OSPREY), OSPREY);
+		layer.add(map.get(RAIL), RAIL);
+		return layer;
+	}
+
 	public JFrame getFrame() {
 		return this.frame;
 	}
-	
-	public abstract void draw(List<Collidable> list);
-	public abstract void render();
-	public abstract void setScreen(JFrame frame);
+
+	public List<JButton> getJButtion() {return screen.getButtons(); }
+
+	public void changePanel(String s) {
+		layout.show(layer, s);
+		screen = map.get(s);
+	}
 }

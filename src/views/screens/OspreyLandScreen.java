@@ -12,9 +12,9 @@ import entities.Sprite;
 import views.ImageHandler;
 import views.View;
 
-public class OspreyLandScreen extends View{
-	
-	List<Collidable> entities = new ArrayList<>();
+public class OspreyLandScreen extends Screen{
+
+	Collection<Collidable> entities;
 	List<Sprite> sprites = new ArrayList<>();
 
 	private int backgroundScrollAmount = 0;
@@ -25,54 +25,40 @@ public class OspreyLandScreen extends View{
 	private Sprite TREE1 = new Sprite(1, 1, "res/tree1.png");
 	private Sprite TREE2 = new Sprite(1,1,"res/tree2.png");
 	private Sprite LAKE = new Sprite(1,1,"res/lake.png");
-	public OspreyLandScreen(JFrame f) {
+
+	public OspreyLandScreen(int w, int h) {
+		super(w,h);
 		backgroundImage = ImageHandler.loadImage(BG_IMAGE_PATH);
-		frame = f;
-		setScreen(frame);
 
 		sprites.add(TREE1);
 		sprites.add(TREE2);
 		sprites.add(LAKE);
 	}
+	@Override
+	public void render(Collection<Collidable> c) {
+		entities = c;
+		this.repaint();
+	}
 
 	@Override
-	public void render() {
-		frame.repaint();
-	}
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		//draw background first
+		//draw it twice, one above and one below
+		if(backgroundScrollAmount < FRAME_HEIGHT) { //probably not the best place for this to be
+			backgroundScrollAmount += backgroundScrollSpeed;
+		} else {
+			backgroundScrollAmount = 0;
+		}
 
-	@Override
-	public void setScreen(JFrame frame) {
-		frame.setLayout(null);
-		frame.setContentPane(buildScreen());
-		frame.setVisible(true);
-	}
-	
-	public void draw(List<Collidable> list) {
-		entities = list;
-	}
-	
-	private JPanel buildScreen() {
-		JPanel p = new JPanel() {
-			@Override
-			public void paintComponent(Graphics g) {
-				super.paintComponents(g);
-				//draw background first
-				//draw it twice, one above and one below
-				if(backgroundScrollAmount < FRAME_HEIGHT) { //probably not the best place for this to be
-					backgroundScrollAmount += backgroundScrollSpeed;
-				} else {
-					backgroundScrollAmount = 0;
-				}
-				
-				g.drawImage(backgroundImage, 0, backgroundScrollAmount-FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT * 3, null);
-				g.drawImage(backgroundImage, 0, backgroundScrollAmount, FRAME_WIDTH, FRAME_HEIGHT * 3, null);
-				
-				for (Collidable c : entities) {
-					c.render(g, sprites);
-				}
-			}
-		};
-		return p;
-	}
+		g.drawImage(backgroundImage, 0, backgroundScrollAmount-FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT * 3, null);
+		g.drawImage(backgroundImage, 0, backgroundScrollAmount, FRAME_WIDTH, FRAME_HEIGHT * 3, null);
 
+		if (entities == null) {
+			return;
+		}
+		for (Collidable c : entities) {
+			c.render(g, sprites);
+		}
+	}
 }
