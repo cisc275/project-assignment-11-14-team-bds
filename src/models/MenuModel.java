@@ -27,5 +27,16 @@ public void setPlayerX(int x) {
 public void setPlayerY(int y) {
 	// TODO Auto-generated method stub
 	
+	
+}
+@Override
+public void dive() {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void unDive() {
+	// TODO Auto-generated method stub
+	
 };
 }

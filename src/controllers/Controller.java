@@ -81,6 +81,8 @@ public class Controller {
 				case KeyEvent.VK_RIGHT:
 					model.setPlayerX(BIRD_X);
 					break;
+				case KeyEvent.VK_SPACE:
+					model.dive();
 				}
 			}
 			@Override
@@ -99,6 +101,8 @@ public class Controller {
 				case KeyEvent.VK_RIGHT:
 					model.setPlayerX(0);
 					break;
+				case KeyEvent.VK_SPACE:
+					model.unDive();
 				}
 			}
 			@Override

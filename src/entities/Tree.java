@@ -9,6 +9,9 @@ public class Tree extends Collidable {
 
 	private final int SPRITE;
 	private Sprite tempSprite;
+	private int damage = 50;
+	private boolean alreadyColl = false;
+	
 	public Tree(int w, int h) {
 		super(0,0,100,175);
 		Random r = new Random();
@@ -19,11 +22,21 @@ public class Tree extends Collidable {
 	}
 	@Override
 	public void onCollide(Collidable that) {
-		System.out.println("tree");
+		//System.out.println("tree");
+		if (that instanceof Bird) {
+			decHealth((Bird)that);
+		}
 	}
 
 	@Override
 	public void render(Graphics g, List<Sprite> c) {
 		g.drawImage(c.get(SPRITE).getCurrentFrame(), xPos, yPos, this.width, this.height, null);
+	}
+	
+	public void decHealth(Bird bird) {
+		if (!alreadyColl) {
+			bird.decHealth(damage);
+			alreadyColl = true;
+		}
 	}
 }

@@ -64,6 +64,18 @@ public class ClapperRailModel extends Model {
 	}
 	
 	@Override
-	public List<Collidable> getEntities() {return entities;};
+	public List<Collidable> getEntities() {return entities;}
+
+	@Override
+	public void dive() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void unDive() {
+		// TODO Auto-generated method stub
+		
+	};
   
 }

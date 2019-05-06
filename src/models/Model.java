@@ -10,6 +10,8 @@ public abstract class Model {
 	
 	public abstract void setPlayerX(int x);
 	public abstract void setPlayerY(int y);
+	public abstract void dive();
+	public abstract void unDive();
 	public abstract void updateCollidables();
 	public abstract List<Collidable> getEntities(); 
   

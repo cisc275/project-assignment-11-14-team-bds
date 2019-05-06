@@ -13,6 +13,7 @@ import entities.Powerup;
 import entities.Path;
 import entities.Tree;
 import entities.Wind;
+import entities.Pond;
 
 public class OspreyModel extends Model {
 	private Bird player = new Osprey();
@@ -26,6 +27,14 @@ public class OspreyModel extends Model {
 		super();
 		entities.add(player);
 		entities.add(new Powerup());
+	}
+	
+	public void dive() {
+		player.dive();
+	}
+	
+	public void unDive() {
+		player.unDive();
 	}
 	
 	@Override
@@ -88,6 +97,9 @@ public class OspreyModel extends Model {
 		}
 		else if (a == 3) {
 			entities.add(new Wind(r.nextInt(WIDTH), 5, 50,50));
+		}
+		else if (a == 4) {
+			entities.add(new Pond(WIDTH, HEIGHT));
 		}
 	}
 	

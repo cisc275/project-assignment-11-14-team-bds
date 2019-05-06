@@ -19,4 +19,5 @@ public class Path extends Collidable {
 		g.setColor(new Color(0,0,255,100));
 		g.fillRect(getX(), getY(), getWidth(), getHeight());
 	}
+	
 }

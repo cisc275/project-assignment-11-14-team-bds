@@ -12,6 +12,7 @@ public class Bird extends Collidable {
 	private int health = 100;
 	private boolean invincible = false;
 	private boolean wind = false;
+	private boolean dive = false;
 	private boolean diving = false;
 	
 	protected int xDir;
@@ -40,8 +41,17 @@ public class Bird extends Collidable {
 		return diving;
 	}
 	
+	public void dive() {
+		diving = true;
+	}
+	
+	public void unDive() {
+		diving = false;
+	}
+	
 	public void decHealth(int damage) {
 		health -= damage;
+		System.out.println("Damage took: " + damage);
 		if (health <= 0) {
 			System.out.println("Game Over!");
 		}
@@ -49,6 +59,7 @@ public class Bird extends Collidable {
 	
 	public void incHealth(int damage) {
 		health += damage;
+		System.out.println("Damage healed: " + damage);
 		if (health >= 100) {
 			health = 100;
 		}
@@ -115,6 +126,7 @@ public class Bird extends Collidable {
     public void update() {
         this.xPos += this.xDir * speedMultiplier;
         this.yPos += this.yDir * speedMultiplier;
+
     }
 
 	public int getXVel() { return xDir; }
