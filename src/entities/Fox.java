@@ -1,15 +1,18 @@
 package entities;
 
 import java.awt.Graphics;
+import java.util.List;
 
 public class Fox extends Enemy {
    private int xDir = 0;
    private int yDir = 0;
    private int distance = 5;
    private Bird player;
+   private Sprite sprite;
    
    public Fox(int x, int y, int w, int h) {
 	   super(x,y,w,h);
+	   sprite = new Sprite(1, "res/fox.png");
    }
 	public void findBird(Bird b) {
 		if (!b.isHidden()) {
@@ -22,6 +25,12 @@ public class Fox extends Enemy {
 		player = b;
 		
    }
+	
+	@Override
+	public void render(Graphics g) {
+
+		g.drawImage(sprite.getCurrentFrame(), xPos, yPos, this.width, this.height, null);
+	}
 	
 	@Override
 	public void update() {
