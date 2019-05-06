@@ -28,8 +28,9 @@ public class Fox extends Enemy {
 	
 	@Override
 	public void render(Graphics g) {
-
-		g.drawImage(sprite.getCurrentFrame(), xPos, yPos, this.width, this.height, null);
+		int left = xPos - (width/2);
+        int top = yPos - (height/2);
+		g.drawImage(sprite.getCurrentFrame(), left, top, this.width, this.height, null);
 	}
 	
 	@Override
