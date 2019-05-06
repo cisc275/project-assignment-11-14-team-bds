@@ -38,5 +38,10 @@ public void dive() {
 public void unDive() {
 	// TODO Auto-generated method stub
 	
+}
+@Override
+public void place() {
+	// TODO Auto-generated method stub
+	
 };
 }

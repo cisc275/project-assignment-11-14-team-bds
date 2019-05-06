@@ -114,4 +114,10 @@ public class OspreyModel extends Model {
 		entities.add(p);
 		lastPath = p;
 	}
+
+	@Override
+	public void place() {
+		// TODO Auto-generated method stub
+		
+	}
 }

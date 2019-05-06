@@ -10,10 +10,12 @@ import javax.swing.Timer;
 
 public class Bird extends Collidable {
 	private int health = 100;
+	private int pathHealth = 100;
+	private int counter = 0;
 	private boolean invincible = false;
 	private boolean wind = false;
-	private boolean dive = false;
 	private boolean diving = false;
+	private boolean hidden = false;
 	
 	protected int xDir;
 	protected int yDir;
@@ -30,6 +32,10 @@ public class Bird extends Collidable {
 		this.yDir = y;
 	}
 	
+	public void setHidden(boolean h) {
+		hidden = h;
+	}
+	
 	public void setYVelocity() {
 		this.yDir = 2;
 	}
@@ -37,10 +43,28 @@ public class Bird extends Collidable {
 		this.xDir = 0;
 	}
 	
+	public void incCount() {
+		counter = counter + 1;
+	}
+	
+	public void decCount(int dec) {
+		counter = counter - dec;
+		if (counter < 0)
+			counter = 0;
+	}
+	
+	public int getCount() {
+		return counter;
+	}
+	
+	public boolean isHidden() {
+		return hidden;
+	}
+	
 	public boolean isDiving() {
 		return diving;
 	}
-	
+
 	public void dive() {
 		diving = true;
 	}
@@ -121,11 +145,27 @@ public class Bird extends Collidable {
     public void onCollide(Collidable that){
     	//System.out.println("Collision: Bird");
     	that.onCollide(this);
+    	if (that instanceof Path) {
+    		pathHealth = pathHealth + 5;
+    		if (pathHealth > 100) {
+    			pathHealth = 100;
+    		}
+    	}
+    	if (!(that instanceof Grass) && !(that instanceof Enemy)) {
+    		setHidden(false);
+    	}
+    	if (that instanceof Enemy) {
+    		decCount(counter);
+    	}
     }
+    
+    
     @Override
     public void update() {
         this.xPos += this.xDir * speedMultiplier;
         this.yPos += this.yDir * speedMultiplier;
+        pathHealth = pathHealth - 1;
+        //hidden = false;
 
     }
 

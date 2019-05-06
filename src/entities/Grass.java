@@ -5,11 +5,12 @@ import java.awt.Graphics;
 import java.util.Random;
 
 public class Grass extends Collidable {
+	
 	public Grass() {
 	    super(320,240, 0,0);
 		Random r3 = new Random();
-		this.width = r3.nextInt(100);
-		this.height = r3.nextInt(100);
+		this.width = 40;
+		this.height = 40;
 		
 	}
     @Override
@@ -26,14 +27,23 @@ public class Grass extends Collidable {
     }
     @Override
     public void onCollide(Collidable that){
-        System.out.print("Hidden");
+        if (that instanceof Bird) {
+        	System.out.println("Hidden");
+        	hide((Bird)that);
+        }
+        
     }
+    
+    public void hide(Bird b) {
+    	b.setHidden(true);
+    }
+    
     @Override
     public void render(Graphics g) {
     	int left = getX() - (getWidth()/2);
 		int top = getY() - (getHeight()/2);
     	g.setColor(Color.cyan);
-    	g.fillOval(left, top,this.width,this.height);}
+    	g.fillRect(left, top,this.width,this.height);}
     @Override
     public void update() {
     }

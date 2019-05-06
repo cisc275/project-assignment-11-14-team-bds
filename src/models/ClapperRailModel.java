@@ -13,16 +13,18 @@ import entities.Fox;
 import entities.Grass;
 import entities.Osprey;
 import entities.Stick;
+import entities.Nest;
 
 public class ClapperRailModel extends Model {
   
 	private Bird player = new ClapperRail();
 	private Fox enemy = new Fox(300,300, 75, 75);
 	private List<Collidable> entities = new ArrayList<>();
+	private int sticksMap = 0;
+	private int nestCost = 20;
 	
 	public ClapperRailModel() {
 		super();
-		Stick.resetCounter();
 		entities.add(player);
 		entities.add(enemy);
 		entities.add(new Grass());
@@ -39,6 +41,7 @@ public class ClapperRailModel extends Model {
 	}
 	@Override
 	public void updateCollidables() {
+		System.out.println(player.getCount());
 		Iterator<Collidable> i = entities.iterator();
 		enemy.findBird(player);
 		while (i.hasNext()) {
@@ -47,6 +50,9 @@ public class ClapperRailModel extends Model {
 			
 			if (checkBounds(c) || c.shouldBeRemoved()) {
 				i.remove();
+				if (c instanceof Stick) {
+					decSticksMap();
+				}
 			}
 			
 			if (!player.equals(c)) {
@@ -61,10 +67,15 @@ public class ClapperRailModel extends Model {
 	
 	public void spawnStick() {
 		Random r = new Random();
-		if(r.nextInt(100) < 5) { //5% chance of spawn
+		if(r.nextInt(100) < 91 && sticksMap < 5) { //5% chance of spawn
 			System.out.println("Stick spawned");
 			entities.add(new Stick(r.nextInt(640), r.nextInt(480)));
+			sticksMap = sticksMap + 1;
 		}
+	}
+	
+	public void decSticksMap() {
+		sticksMap = sticksMap - 1;
 	}
 	
 	public void spawnGrass() {
@@ -81,14 +92,22 @@ public class ClapperRailModel extends Model {
 
 	@Override
 	public void dive() {
-		// TODO Auto-generated method stub
+		player.dive();
 		
 	}
 
 	@Override
 	public void unDive() {
-		// TODO Auto-generated method stub
+		player.unDive();
 		
+	}
+
+	@Override
+	public void place() {
+		if (player.getCount() >= nestCost) {
+			entities.add(new Nest(player.getX(), player.getY()));
+			player.decCount(nestCost);
+		}
 	};
   
 }

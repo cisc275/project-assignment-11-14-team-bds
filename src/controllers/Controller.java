@@ -83,6 +83,9 @@ public class Controller {
 					break;
 				case KeyEvent.VK_SPACE:
 					model.dive();
+					break;
+				case KeyEvent.VK_SHIFT:
+					model.place();
 				}
 			}
 			@Override
@@ -103,6 +106,9 @@ public class Controller {
 					break;
 				case KeyEvent.VK_SPACE:
 					model.unDive();
+					break;
+				case KeyEvent.VK_SHIFT:
+					model.place();
 				}
 			}
 			@Override

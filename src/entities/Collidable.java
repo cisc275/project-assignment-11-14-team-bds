@@ -34,7 +34,7 @@ public abstract class Collidable {
     public void onCollideBird(Bird b) {
     }
     public void onCollide(Collidable that) {
-        System.out.println("Overload this collision");
+        //System.out.println("Overload this collision");
     }
 
     public void render(Graphics g, List<Sprite> c) {

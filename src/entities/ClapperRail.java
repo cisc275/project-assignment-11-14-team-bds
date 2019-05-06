@@ -7,6 +7,10 @@ public class ClapperRail extends Bird{
 		return this.branches;
 	}
 	
+	public void incBranches() {
+		branches = branches + 1;
+	}
+	
 	
 }
 

@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.util.*;
 
 public class Pond extends Collidable {
+	private final int SPRITE = 1;
 	private boolean alreadyColl = false;
 	private int damage = 20;
 	
@@ -26,12 +27,13 @@ public class Pond extends Collidable {
 	public void render(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect(getX(), getY(), getWidth(), getHeight());
-	}
+	    }
 	
 
 	public void pushBird(Bird bird) {
 		if (bird.isDiving() && !alreadyColl) {
 			bird.incHealth(damage);
+			bird.incCount();
 			alreadyColl = true;
 		}
 	}
