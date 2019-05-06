@@ -50,6 +50,7 @@ public class Controller {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                         	model.updateCollidables();
+                        	model.checkGameOver();
                         	view.draw(model.getEntities());
                         	view.render();
                         }
