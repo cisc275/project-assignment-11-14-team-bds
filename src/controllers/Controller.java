@@ -88,6 +88,9 @@ public class Controller {
 					break;
 				case KeyEvent.VK_SHIFT:
 					model.place();
+					break;
+				case KeyEvent.VK_ESCAPE:
+					setInstance(new MenuModel(), View.MENU);
 				}
 			}
 			@Override
