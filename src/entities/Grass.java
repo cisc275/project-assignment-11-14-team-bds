@@ -5,12 +5,9 @@ import java.awt.Graphics;
 import java.util.Random;
 
 public class Grass extends Collidable {
-	
+	private static Sprite sprite = new Sprite(1,"res/grasspatch.jpg");
 	public Grass() {
-	    super(320,240, 0,0);
-		Random r3 = new Random();
-		this.width = 40;
-		this.height = 40;
+	    super(320,240,100 ,100);
 		
 	}
     @Override
@@ -42,8 +39,9 @@ public class Grass extends Collidable {
     public void render(Graphics g) {
     	int left = getX() - (getWidth()/2);
 		int top = getY() - (getHeight()/2);
-    	g.setColor(Color.cyan);
-    	g.fillRect(left, top,this.width,this.height);}
+    	g.setColor(Color.GREEN);
+    	g.drawImage(sprite.getCurrentFrame(), this.xPos, this.yPos, this.width, this.height, null);
+    }
     @Override
     public void update() {
     }
