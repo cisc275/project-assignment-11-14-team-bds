@@ -10,6 +10,8 @@ public abstract class Collidable {
     protected int width;
     protected int height;
     protected int SCREEN_MOVE = 10;
+    protected boolean toBeRemoved = false;
+    
     public Collidable() {
         this(0,0,0,0);
     }
@@ -60,4 +62,8 @@ public abstract class Collidable {
     public int getHeight() {
         return this.height;
     }
+    public boolean shouldBeRemoved() {
+    	return toBeRemoved;
+    }
+    
 }

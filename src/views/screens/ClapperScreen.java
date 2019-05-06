@@ -12,7 +12,6 @@ import entities.Collidable;
 import views.View;
 
 public class ClapperScreen extends View{
-	
 
 	List<Collidable> entities = new ArrayList<>();
 	
