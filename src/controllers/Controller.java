@@ -21,6 +21,9 @@ public class Controller {
 	private final int BIRD_X = 8;
 	private final int BIRD_Y = 10;
 	
+	private final int GAME_DURATION = 9;
+	private final int SWITCH_GAME_STATE = 4;
+	
 	/*
 	 * Constructor for the controller, takes in a model and a view
 	 */
@@ -49,7 +52,15 @@ public class Controller {
                 Timer time = new Timer(50, new AbstractAction() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                        	model.checkGameOver();
+                        	if (model.checkGameState(GAME_DURATION)) {
+                        		// TODO: show game over screen
+                        		Controller c = new Controller(null, null);
+                        		Model m = new GameOverModel();
+                        		View v = new GameOverScreen(c);
+                        		c.switchInstance(m, v);
+                        		
+                        	};
+                        	//model.checkGameState(SWITCH_GAME_STATE);
                         	model.updateCollidables();
                         	view.draw(model.getEntities());
                         	view.render();

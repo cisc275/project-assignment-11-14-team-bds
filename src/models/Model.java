@@ -9,8 +9,9 @@ public abstract class Model {
 	protected int HEIGHT = 480;
 	
 	protected final int ONESECOND = 1000;
-	protected final int GAMEDURATION = 90;
 	protected long initialTime = System.currentTimeMillis();
+	
+	private boolean hasOccured = false;
 	
 	
 	public abstract void setPlayerX(int x);
@@ -19,9 +20,12 @@ public abstract class Model {
 	public abstract void unDive();
 	public abstract void updateCollidables();
 	public abstract List<Collidable> getEntities(); 
-	
-	public boolean checkGameOver() {
-		if ((System.currentTimeMillis() - initialTime) / ONESECOND >= GAMEDURATION) {
+
+	public boolean checkGameState(int duration) {
+		long timeElapsed = System.currentTimeMillis() - initialTime;
+ 		if (timeElapsed / ONESECOND >= duration && !hasOccured) {
+			System.out.println("Method invoked");
+			hasOccured = true;
 			return true;
 		}
 		return false;
