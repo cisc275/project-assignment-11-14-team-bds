@@ -8,12 +8,13 @@ public class Pond extends Collidable {
 	private final int SPRITE = 1;
 	private boolean alreadyColl = false;
 	private int damage = 20;
-	
+
 	public Pond(int w, int h) {
-		super(0, 0, 100, 100);
+		super(0, 0, 150, 100);
 		Random r = new Random();
 		xPos = r.nextInt(w - width) + (height/ 2);
 		yPos = 0;
+		this.SCREEN_MOVE = 2;
 	}
 
 	@Override
@@ -24,9 +25,10 @@ public class Pond extends Collidable {
 	}
 
 	@Override
-	public void render(Graphics g) {
-		g.setColor(Color.BLUE);
-		g.fillRect(getX(), getY(), getWidth(), getHeight());
+	public void render(Graphics g, List<Sprite> c) {
+		//g.setColor(Color.BLUE);
+		//g.fillRect(getX(), getY(), getWidth(), getHeight());
+		g.drawImage(c.get(2).getCurrentFrame(), xPos, yPos, this.width, this.height, null);
 	    }
 	
 

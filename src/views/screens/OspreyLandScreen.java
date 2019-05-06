@@ -24,7 +24,7 @@ public class OspreyLandScreen extends View{
 
 	private Sprite TREE1 = new Sprite(1, 1, "res/tree1.png");
 	private Sprite TREE2 = new Sprite(1,1,"res/tree2.png");
-
+	private Sprite LAKE = new Sprite(1,1,"res/lake.png");
 	public OspreyLandScreen(JFrame f) {
 		backgroundImage = ImageHandler.loadImage(BG_IMAGE_PATH);
 		frame = f;
@@ -32,6 +32,7 @@ public class OspreyLandScreen extends View{
 
 		sprites.add(TREE1);
 		sprites.add(TREE2);
+		sprites.add(LAKE);
 	}
 
 	@Override
