@@ -10,10 +10,7 @@ import javax.smartcardio.Card;
 import javax.swing.*;
 
 import entities.Collidable;
-import views.screens.ClapperScreen;
-import views.screens.MenuScreen;
-import views.screens.OspreyLandScreen;
-import views.screens.Screen;
+import views.screens.*;
 
 public class View {
 	protected int FRAME_WIDTH = 640;
@@ -22,7 +19,7 @@ public class View {
 	public static final String MENU = "menu";
 	public static final String OSPREY = "osprey";
 	public static final String RAIL = "rail";
-	public static final String OSPREY_SWIN = "osprey_win";
+	public static final String OSPREY_WIN = "osprey_win";
 	public static final String RAIL_WIN = "rail_win";
 	public static final String QUIZ = "quiz";
 
@@ -64,6 +61,8 @@ public class View {
 		c.addLayoutComponent(map.get(OSPREY), OSPREY);
 		map.put(RAIL, new ClapperScreen(FRAME_WIDTH,FRAME_HEIGHT));
 		c.addLayoutComponent(map.get(RAIL), RAIL);
+		map.put(OSPREY_WIN, new OspreyWinScreen(FRAME_WIDTH, FRAME_HEIGHT));
+		c.addLayoutComponent(map.get(OSPREY_WIN), OSPREY_WIN);
 		return c;
 	}
 
@@ -72,6 +71,7 @@ public class View {
 		layer.add(map.get(MENU), MENU);
 		layer.add(map.get(OSPREY), OSPREY);
 		layer.add(map.get(RAIL), RAIL);
+		layer.add(map.get(OSPREY_WIN), OSPREY_WIN);
 		return layer;
 	}
 

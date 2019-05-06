@@ -71,26 +71,30 @@ public class Controller {
 			public void keyPressed(KeyEvent e){
 				int a = e.getKeyCode();
 				switch(a) {
-				case KeyEvent.VK_UP:
-					model.setPlayerY(-BIRD_Y);
+					case KeyEvent.VK_UP:
+						model.setPlayerY(-BIRD_Y);
 					break;
-				case KeyEvent.VK_DOWN:
-					model.setPlayerY(BIRD_Y);
+					case KeyEvent.VK_DOWN:
+						model.setPlayerY(BIRD_Y);
 					break;
-				case KeyEvent.VK_LEFT:
-					model.setPlayerX(-BIRD_X);
+					case KeyEvent.VK_LEFT:
+						model.setPlayerX(-BIRD_X);
 					break;
-				case KeyEvent.VK_RIGHT:
-					model.setPlayerX(BIRD_X);
+					case KeyEvent.VK_RIGHT:
+						model.setPlayerX(BIRD_X);
 					break;
-				case KeyEvent.VK_SPACE:
-					model.dive();
-					break;
-				case KeyEvent.VK_SHIFT:
-					model.place();
-					break;
-				case KeyEvent.VK_ESCAPE:
-					setInstance(new MenuModel(), View.MENU);
+					case KeyEvent.VK_SPACE:
+						model.dive();
+						break;
+					case KeyEvent.VK_SHIFT:
+						model.place();
+						break;
+					case KeyEvent.VK_ESCAPE:
+						setInstance(new MenuModel(), View.MENU);
+						break;
+					case KeyEvent.VK_0:
+						setInstance(new MenuModel(), View.OSPREY_WIN);
+						break;
 				}
 			}
 			@Override

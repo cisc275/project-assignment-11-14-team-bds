@@ -47,12 +47,7 @@ public class MenuScreen extends Screen {
 	public List<JButton> getButtons() {
 		return buttons;
 	}
-	@Override
-	public void paintComponents(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillRect(0,0,200,200);
-	}
 
 	@Override
-	public void render(Collection<Collidable> c) {this.repaint();}
+	public void render(Collection<Collidable> c) {}
 }
