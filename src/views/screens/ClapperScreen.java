@@ -15,17 +15,24 @@ import views.View;
 public class ClapperScreen extends Screen{
 
 	Collection<Collidable> entities = new ArrayList<>();
-
+	/*
+	* Builds the screen by the size w and h
+	* */
 	public ClapperScreen(int w, int h) {
 		super(w,h);
 	}
 
+	/*
+	* called once to redraw the list
+	 */
 	@Override
 	public void render(Collection<Collidable> list) {
 		entities = list;
 		this.repaint();
 	}
-
+	/*
+	*  Overrides the JPane, how to draw the screen
+	* */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 

@@ -20,33 +20,50 @@ public class Bird extends Collidable {
 	protected int xDir;
 	protected int yDir;
 	private float speedMultiplier = 1f;
-	
+/*
+* Initialize a bird at the starting position, set's size and health.
+* */
 	public Bird(){
 		super(320, 400, 30,30);
 		this.health = 100;
 	}
+	/*
+	* @param x, x velocity
+	* */
 	public void setXVelocity(int x) {
 		this.xDir = x;
 	}
+	/*
+	* #param y, y velocity
+	* */
 	public void setYVelocity(int y) {
 		this.yDir = y;
 	}
-	
+	/*
+	* @param h, if bird is hidden boolean flag
+	* */
 	public void setHidden(boolean h) {
 		hidden = h;
 	}
-	
+	/*
+	* Sets y velocity to default value
+	* */
 	public void setYVelocity() {
 		this.yDir = 2;
 	}
+	/*
+	* Set x velocity to default value
+	* */
 	public void setXVelocity() {
 		this.xDir = 0;
 	}
-	
+	/*
+	* Counts number of branches collected
+	* */
 	public void incCount() {
 		counter = counter + 1;
 	}
-	
+
 	public void decCount(int dec) {
 		counter = counter - dec;
 		if (counter < 0)

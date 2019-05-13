@@ -39,11 +39,19 @@ public class View {
 		layer.revalidate();
 		screen = map.get(MENU);
 	}
-
+	/*
+	* Asks the current screen to render the collection of entities
+	* @params c, Collection of entities to render
+	* */
 	public void render(Collection<Collidable> c) {
 		screen.render(c);
 	}
-
+	/*
+	* Should be called once, creates the frame that contains the game
+	* @params w, width of the frame
+	* @param h, height of the frame
+	* @return a new jFrame that displays the game
+	* */
 	private JFrame buildFrame(int w, int h) {
 		JFrame f = new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,7 +60,9 @@ public class View {
 		f.setVisible(true);
 		return f;
 	}
-
+	/*
+	* Builds teh card cardlayout to change screens easily
+	* */
 	private CardLayout buildLayout() {
 		CardLayout c = new CardLayout();
 		map.put(MENU, new MenuScreen(FRAME_WIDTH,FRAME_HEIGHT));
@@ -65,7 +75,9 @@ public class View {
 		c.addLayoutComponent(map.get(OSPREY_WIN), OSPREY_WIN);
 		return c;
 	}
-
+	/*
+	* Builds the initial JPane that sits in the JFrame
+	* */
 	private JPanel buildLayer() {
 		JPanel layer = new JPanel();
 		layer.add(map.get(MENU), MENU);
@@ -74,13 +86,24 @@ public class View {
 		layer.add(map.get(OSPREY_WIN), OSPREY_WIN);
 		return layer;
 	}
-
+	/*
+	* Return the JFrame to add listener hooks
+	* @return the current JFrame
+	* */
 	public JFrame getFrame() {
 		return this.frame;
 	}
 
+	/*
+	* Returns buttons to add listeners
+	* @return list of JButtons
+	* */
 	public List<JButton> getJButtion() {return screen.getButtons(); }
 
+	/*
+	* Sends an event to change to the proper screen
+	* @params s a static constant defined in the View class
+	* */
 	public void changePanel(String s) {
 		layout.show(layer, s);
 		screen = map.get(s);
