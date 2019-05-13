@@ -9,7 +9,7 @@ public class Tree extends Collidable {
 
 	private final int SPRITE;
 	private Sprite tempSprite;
-	private int damage = 50;
+	private int damage = 20;
 	private boolean alreadyColl = false;
 	
 	public Tree(int w, int h) {

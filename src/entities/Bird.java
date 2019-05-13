@@ -9,7 +9,8 @@ import javax.swing.AbstractAction;
 import javax.swing.Timer;
 
 public class Bird extends Collidable {
-	private int health = 100;
+	public static final int MAX_HEALTH = 100;
+	protected int health = 100;
 	private int pathHealth = 100;
 	private int counter = 0;
 	private boolean invincible = false;
@@ -75,7 +76,7 @@ public class Bird extends Collidable {
 	
 	public void decHealth(int damage) {
 		health -= damage;
-		System.out.println("Damage took: " + damage);
+		System.out.println("Damage taken: " + damage);
 		if (health <= 0) {
 			System.out.println("Game Over!");
 		}
@@ -84,8 +85,8 @@ public class Bird extends Collidable {
 	public void incHealth(int damage) {
 		health += damage;
 		System.out.println("Damage healed: " + damage);
-		if (health >= 100) {
-			health = 100;
+		if (health >= MAX_HEALTH) {
+			health = MAX_HEALTH;
 		}
 	}
 	
