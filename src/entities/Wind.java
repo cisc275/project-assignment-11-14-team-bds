@@ -11,7 +11,7 @@ public class Wind extends Collidable {
 	static final int time = 500;
 	
 	public Wind(int x, int y, int w, int h) {
-		super(x,y,w,h);
+		super(x,y,w,h,1);
 		Random r = new Random();
 		direction = r.nextInt(4);
 

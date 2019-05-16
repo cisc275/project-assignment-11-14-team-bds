@@ -23,7 +23,7 @@ public class Bird extends Collidable {
 	private float speedMultiplier = 1f;
 	
 	public Bird(){
-		super(320, 400, 30,30);
+		super(320, 400, 30, 30, 0);
 		this.health = 100;
 	}
 	public void setXVelocity(int x) {

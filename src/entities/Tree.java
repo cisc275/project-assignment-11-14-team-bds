@@ -13,7 +13,7 @@ public class Tree extends Collidable {
 	private boolean alreadyColl = false;
 	
 	public Tree(int w, int h) {
-		super(0,0,100,175);
+		super(0,0,100,175,2);
 		Random r = new Random();
 		xPos = r.nextInt(w - width) + (height/ 2);
 		yPos = 0;

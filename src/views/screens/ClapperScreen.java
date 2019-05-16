@@ -21,7 +21,7 @@ public class ClapperScreen extends Screen{
 	}
 
 	@Override
-	public void render(Collection<Collidable> list) {
+	public void render(List<Collidable> list) {
 		entities = list;
 		this.repaint();
 	}

@@ -4,22 +4,29 @@ import java.awt.*;
 import java.util.List;
 import java.util.Collection;
 
-public abstract class Collidable {
+public abstract class Collidable implements Comparable<Collidable> {
     protected int xPos;
     protected int yPos;
     protected int width;
     protected int height;
+    protected int renderPriority = 1;
     protected int SCREEN_MOVE = 10;
     protected boolean toBeRemoved = false;
     
     public Collidable() {
-        this(0,0,0,0);
+        this(0,0,0,0,1);
     }
-    public Collidable(int x, int y, int w, int h) {
+    
+    public Collidable(int renderPriority) {
+    	this(0,0,0,0,renderPriority);
+    }
+    
+    public Collidable(int x, int y, int w, int h, int renderPriority) {
         this.xPos = x;
         this.yPos = y;
         this.width = w;
         this.height = h;
+        this.renderPriority = renderPriority;
     }
     public boolean collideWith(Collidable that) {
         if (this.getX() > that.getX() && this.getX() < (that.getX() + that.getWidth())) {
@@ -64,6 +71,11 @@ public abstract class Collidable {
     }
     public boolean shouldBeRemoved() {
     	return toBeRemoved;
+    }
+    
+    @Override
+    public int compareTo(Collidable c) {
+    	return c.renderPriority - this.renderPriority;
     }
     
 }

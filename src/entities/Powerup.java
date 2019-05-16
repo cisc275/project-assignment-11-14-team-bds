@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public class Powerup extends Collidable {
 	public Powerup() {
-		super(320,240,50,50);
+		super(320,240,50,50,2);
 	}
 	@Override
     public void onCollide(Collidable that){

@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Branch extends Collidable {
 	public Branch() {
-	    super(0,0,50,50);
+	    super(0,0,50,50,1);
 		Random r1 = new Random();
 		this.xPos = r1.nextInt(500);
 		this.yPos =0;

@@ -6,7 +6,7 @@ import java.awt.Graphics;
 public class Path extends Collidable {
 
 	public Path(int x, int y, int w, int h) {
-		super(x,y,w,h);
+		super(x,y,w,h,1);
 		this.SCREEN_MOVE = 5;
 	}
 

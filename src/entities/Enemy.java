@@ -9,6 +9,6 @@ public class Enemy extends Collidable{
 		this(30,30,50,50);
 	}
 	public Enemy(int x, int y, int w, int h) {
-		super(x,y,w,h);
+		super(x,y,w,h,0);
 	}
 }

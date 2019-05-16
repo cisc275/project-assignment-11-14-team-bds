@@ -15,7 +15,7 @@ public abstract class Screen extends JPanel {
         FRAME_WIDTH = w;
         FRAME_HEIGHT = h;
     }
-    public abstract void render(Collection<Collidable> c);
+    public abstract void render(List<Collidable> c);
 
     public List<JButton> getButtons() {return null; }
 }

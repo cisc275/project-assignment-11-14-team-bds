@@ -10,7 +10,7 @@ public class Pond extends Collidable {
 	private int damage = 20;
 
 	public Pond(int w, int h) {
-		super(0, 0, 150, 100);
+		super(0, 0, 150, 100,2);
 		Random r = new Random();
 		xPos = r.nextInt(w - width) + (height/ 2);
 		yPos = 0;

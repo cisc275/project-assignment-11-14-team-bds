@@ -49,5 +49,5 @@ public class MenuScreen extends Screen {
 	}
 
 	@Override
-	public void render(Collection<Collidable> c) {}
+	public void render(List<Collidable> c) {}
 }
