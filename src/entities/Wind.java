@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.*;
 
+import controllers.Randoms;
+
 public class Wind extends Collidable {
 	
 	private final int moveDis = 20;
@@ -12,8 +14,7 @@ public class Wind extends Collidable {
 	
 	public Wind(int x, int y, int w, int h) {
 		super(x,y,w,h);
-		Random r = new Random();
-		direction = r.nextInt(4);
+		direction = Randoms.getRandomInt(4);
 
 	}
 

@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.smartcardio.Card;
 import javax.swing.*;
 
 import entities.Collidable;

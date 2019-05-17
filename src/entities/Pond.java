@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.*;
 
+import controllers.Randoms;
+
 public class Pond extends Collidable {
 	private final int SPRITE = 1;
 	private boolean alreadyColl = false;
@@ -11,8 +13,7 @@ public class Pond extends Collidable {
 
 	public Pond(int w, int h) {
 		super(0, 0, 150, 100);
-		Random r = new Random();
-		xPos = r.nextInt(w - width) + (height/ 2);
+		xPos = Randoms.getRandomInt((w - width) + (height/ 2));
 		yPos = 0;
 		this.SCREEN_MOVE = 2;
 	}

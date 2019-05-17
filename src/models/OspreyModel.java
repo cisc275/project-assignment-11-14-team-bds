@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.sun.java.swing.plaf.windows.resources.windows;
 
+import controllers.Randoms;
 import entities.Bird;
 import entities.Branch;
 import entities.Collidable;
@@ -88,15 +89,14 @@ public class OspreyModel extends Model {
 	
 	
 	private void spawnEnemy() {
-		Random r = new Random();
-		int a = r.nextInt(80);
+		int a = Randoms.getRandomInt(80);
 		if (a == 2) {
 			//entities.add(new Enemy(r.nextInt(WIDTH), 5, 125, 100));
 		} else if (a == 1) {
 			entities.add(new Tree(WIDTH, HEIGHT));
 		}
 		else if (a == 3) {
-			entities.add(new Wind(r.nextInt(WIDTH), 5, 50,50));
+			entities.add(new Wind(Randoms.getRandomInt(WIDTH), 5, 50,50));
 		}
 		else if (a == 4) {
 			entities.add(new Pond(WIDTH, HEIGHT));
