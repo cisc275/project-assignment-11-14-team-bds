@@ -15,8 +15,6 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
 	private final int pathWidth;
 	private final int pathHeight;
 	
-	private int scrollAmount = 0;
-	
 	private LinkedList<Path> paths = new LinkedList<Path>();
 	private BufferedImage pathImage = null;
 	
@@ -33,7 +31,6 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
 	 */
 	@Override
 	public void update() {
-		int i = 0;
 		if(paths.size() > 0) {
 			for(Path p : paths) {
 				p.update();
@@ -149,7 +146,7 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
 			return;
 		}
 		
-		BufferedImage img = new BufferedImage(View.FRAME_WIDTH, View.FRAME_HEIGHT+pathHeight, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage img = new BufferedImage(View.FRAME_WIDTH, View.FRAME_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 		Graphics g = img.getGraphics();
 		g.setColor(Color.RED);
 		
