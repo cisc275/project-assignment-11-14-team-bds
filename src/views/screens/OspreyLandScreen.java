@@ -26,6 +26,9 @@ public class OspreyLandScreen extends Screen{
 	private Sprite TREE2 = new Sprite(1,1,"res/tree2.png");
 	private Sprite LAKE = new Sprite(1,1,"res/lake.png");
 
+	/*
+	* Builds the screen and adds the starting entities to the list
+	* */
 	public OspreyLandScreen(int w, int h) {
 		super(w,h);
 		backgroundImage = ImageHandler.loadImage(BG_IMAGE_PATH);
@@ -34,12 +37,18 @@ public class OspreyLandScreen extends Screen{
 		sprites.add(TREE2);
 		sprites.add(LAKE);
 	}
+
+	/*
+	* Redraws the collections, called once per tick
+	* */
 	@Override
 	public void render(List<Collidable> c) {
 		entities = c;
 		this.repaint();
 	}
-
+	/*
+	* Overrides the JPanel to specify how this screen should be drawn
+	* */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

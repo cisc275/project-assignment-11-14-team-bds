@@ -4,11 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
+import controllers.Randoms;
+
 public class Branch extends Collidable {
 	public Branch() {
-	    super(0,0,50,50,1);
-		Random r1 = new Random();
-		this.xPos = r1.nextInt(500);
+	  super(0,0,50,50,1);
+		this.xPos = Randoms.getRandomInt(500);
 		this.yPos =0;
 	}
 	@Override

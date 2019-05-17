@@ -19,8 +19,10 @@ public class Controller {
 	private final int BIRD_X = 8;
 	private final int BIRD_Y = 10;
 	
-	/*
-	 * Constructor for the controller, takes in a model and a view
+	/**
+		@desc Constructor for controller
+		@param Model m - instance of model
+		@param View v - instance of view
 	 */
 	public Controller(Model m, View v) {
 		this.model = m;
@@ -33,18 +35,22 @@ public class Controller {
 		setKeyListener(this.view);
 	}
 	
-	/*
-	 * Switch for controller, takes in model and view and sets a keyListener to the view
+	/**
+		@desc Switch for controller, takes in model and view and sets a keyListener to the view
+		@param Model m - instance of model
+		@param String s - string representing the view to switch to
+		@return void
 	 */
 	public void setInstance(Model m, String s) {
 		this.model = m;
 		this.view.changePanel(s);
 	}
-	/*
-	 * Starts the game loop with a timer set to take actions every 50 ms
-	 * Every time an action is performed the model's updateCollidables is called
-	 * the view draws the list of entities from the model, and then the render function is called
-	 */
+	/**
+		@desc Starts the game loop with a timer set to take actions every 50 ms
+	 * 	Every time an action is performed the model's updateCollidables is called
+	 * 	the view draws the list of entities from the model, and then the render function is called
+	 	@return void
+	*/
 	public void start() {
 		EventQueue.invokeLater(new Runnable() {
             @Override
@@ -60,9 +66,11 @@ public class Controller {
             }
 		});
 	}
-	/*
-	 * Sets up a key listener to the view which increases the speed of the bird in the model
+	/**
+	 * @desc Sets up a key listener to the view which increases the speed of the bird in the model
 	 * depending on which key is pressed and then resets it back to 0 when you let go
+	 * @param View v - instance of view to display
+	 * @return void
 	 */
 	private void setKeyListener(View v) {
 		JFrame frame = v.getFrame();
@@ -128,11 +136,13 @@ public class Controller {
 	public int getKeyPress() {return 0;};
 	public int getMouseLoc() {return 0;};
 	
-	/*
-	 * Creates a controller with the model and view of the menu from where
-	 * the switch is called depending on which game is clicked and then the
-	 * game gets started
-	 */
+	 /**
+	 	 @desc - creates a controller with the model and view of the menu from where
+		 the switch is called depending on which game is clicked and then the game
+		 starts
+		 @param args
+		 @return void
+	  */
 	public static void main(String[] args) {
 		Model m = new MenuModel();
 		View v = new View();
