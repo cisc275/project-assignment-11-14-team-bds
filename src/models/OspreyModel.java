@@ -3,12 +3,9 @@ package models;
 import java.util.*;
 
 import entities.Bird;
-import entities.Branch;
 import entities.Collidable;
-import entities.Enemy;
 import entities.Osprey;
 import entities.Powerup;
-import entities.Path;
 import entities.PathHandler;
 import entities.Tree;
 import entities.Wind;
@@ -18,8 +15,7 @@ public class OspreyModel extends Model {
 	private Bird player = new Osprey();
 	private List<Collidable> entities = new ArrayList<>();
 	
-	private Path lastPath = new Path(300, 0, 100, 20);
-	private PathHandler pathHandler = new PathHandler(100,20);
+	private PathHandler pathHandler = new PathHandler();
 
 	private int prevX;
 	private int prevY;

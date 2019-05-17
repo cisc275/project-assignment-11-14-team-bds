@@ -12,16 +12,11 @@ import views.View;
 
 public class PathHandler extends Collidable { //had to do this for rendering reasons
 	
-	private final int pathWidth;
-	private final int pathHeight;
-	
 	private LinkedList<Path> paths = new LinkedList<Path>();
 	private BufferedImage pathImage = null;
 	
-	public PathHandler(int pathWidth, int pathHeight) {
+	public PathHandler() {
 		super(0,0,View.FRAME_WIDTH,View.FRAME_HEIGHT,1);
-		this.pathWidth = pathWidth;
-		this.pathHeight = pathHeight;
 		this.SCREEN_MOVE = 0;
 	}
 	
