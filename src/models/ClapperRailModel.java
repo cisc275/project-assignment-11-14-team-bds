@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -56,6 +57,7 @@ public class ClapperRailModel extends Model {
 	 */
 	@Override
 	public void updateCollidables() {
+		Collections.sort(entities);
 		System.out.println(player.getCount());
 		Iterator<Collidable> i = entities.iterator();
 		enemy.findBird(player);

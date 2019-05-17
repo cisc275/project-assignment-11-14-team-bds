@@ -14,7 +14,7 @@ import views.View;
 
 public class OspreyLandScreen extends Screen{
 
-	Collection<Collidable> entities;
+	List<Collidable> entities;
 	List<Sprite> sprites = new ArrayList<>();
 
 	private int backgroundScrollAmount = 0;
@@ -42,7 +42,7 @@ public class OspreyLandScreen extends Screen{
 	* Redraws the collections, called once per tick
 	* */
 	@Override
-	public void render(Collection<Collidable> c) {
+	public void render(List<Collidable> c) {
 		entities = c;
 		this.repaint();
 	}
@@ -66,8 +66,11 @@ public class OspreyLandScreen extends Screen{
 		if (entities == null) {
 			return;
 		}
-		for (Collidable c : entities) {
-			c.render(g, sprites);
+		
+		for(Collidable c : entities) {
+			c.render(g,sprites);
 		}
+		
+		
 	}
 }

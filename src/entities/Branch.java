@@ -8,7 +8,7 @@ import controllers.Randoms;
 
 public class Branch extends Collidable {
 	public Branch() {
-	    super(0,0,50,50);
+	  super(0,0,50,50,1);
 		this.xPos = Randoms.getRandomInt(500);
 		this.yPos =0;
 	}

@@ -6,7 +6,7 @@ import java.awt.Graphics;
 public class Nest extends Collidable {
 
 	public Nest(int x, int y) {
-		super(x, y, 50, 50);
+		super(x, y, 50, 50, 1);
 	}
 
 	@Override

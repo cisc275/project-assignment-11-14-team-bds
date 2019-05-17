@@ -12,8 +12,8 @@ import entities.Collidable;
 import views.screens.*;
 
 public class View {
-	protected int FRAME_WIDTH = 640;
-	protected int FRAME_HEIGHT = 480;
+	public static int FRAME_WIDTH = 640;
+	public static int FRAME_HEIGHT = 480;
 
 	public static final String MENU = "menu";
 	public static final String OSPREY = "osprey";
@@ -38,11 +38,12 @@ public class View {
 		layer.revalidate();
 		screen = map.get(MENU);
 	}
+  
 	/*
 	* Asks the current screen to render the collection of entities
 	* @params c, Collection of entities to render
 	* */
-	public void render(Collection<Collidable> c) {
+	public void render(List<Collidable> c) {
 		screen.render(c);
 	}
 	/*

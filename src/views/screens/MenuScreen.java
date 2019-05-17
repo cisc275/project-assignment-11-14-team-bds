@@ -62,5 +62,5 @@ public class MenuScreen extends Screen {
 	* No entities should be rendered on the menu screen
 	 */
 	@Override
-	public void render(Collection<Collidable> c) {}
+	public void render(List<Collidable> c) {}
 }

@@ -26,7 +26,7 @@ public class ClapperScreen extends Screen{
 	* called once to redraw the list
 	 */
 	@Override
-	public void render(Collection<Collidable> list) {
+	public void render(List<Collidable> list) {
 		entities = list;
 		this.repaint();
 	}

@@ -2,16 +2,12 @@ package models;
 
 import java.util.*;
 
-import com.sun.java.swing.plaf.windows.resources.windows;
-
 import controllers.Randoms;
 import entities.Bird;
-import entities.Branch;
 import entities.Collidable;
-import entities.Enemy;
 import entities.Osprey;
 import entities.Powerup;
-import entities.Path;
+import entities.PathHandler;
 import entities.Tree;
 import entities.Wind;
 import entities.Pond;
@@ -20,7 +16,7 @@ public class OspreyModel extends Model {
 	private Bird player = new Osprey();
 	private List<Collidable> entities = new ArrayList<>();
 	
-	private Path lastPath = new Path(300, 0, 100, 20);
+	private PathHandler pathHandler = new PathHandler();
 
 	private int prevX;
 	private int prevY;
@@ -28,6 +24,7 @@ public class OspreyModel extends Model {
 		super();
 		entities.add(player);
 		entities.add(new Powerup());
+		entities.add(pathHandler);
 	}
 	
 	public void dive() {
@@ -55,6 +52,7 @@ public class OspreyModel extends Model {
 	}
 	@Override
 	public void updateCollidables() {
+		Collections.sort(entities);
 		prevX = player.getX();
 		prevY = player.getY();
 		Iterator<Collidable> i = entities.iterator();
@@ -65,7 +63,7 @@ public class OspreyModel extends Model {
 			if (!inBounds(c)) {
 				if (player.equals(c)) {
 					player.setLoc(prevX, prevY);
-				} else {
+				} else if(c != pathHandler) {
 					i.remove();
 					continue;
 				}
@@ -78,15 +76,15 @@ public class OspreyModel extends Model {
 			}
 		}
 		spawnEnemy();
-		spawnPath(lastPath);
+		pathHandler.generatePath();
 	}
+	
 	@Override
 	public List<Collidable> getEntities() {return entities;};
 	
 	private boolean inBounds(Collidable c) {
 		return 	(c.getX() > 0 && c.getX() < WIDTH) && (c.getY() > 0 && c.getY() < HEIGHT);
 	}
-	
 	
 	private void spawnEnemy() {
 		int a = Randoms.getRandomInt(80);
@@ -101,18 +99,7 @@ public class OspreyModel extends Model {
 		else if (a == 4) {
 			entities.add(new Pond(WIDTH, HEIGHT));
 		}
-	}
-	
-	private void spawnPath(Collidable prev) {
-		Random r = new Random();
-		int W = 200;
-		int offset;
-		do {
-			offset = r.nextInt(W / 2) - (W / 4);
-		} while (offset + prev.getX() < 100 || offset + prev.getX() > WIDTH - 100 );
-		Path p = new Path(prev.getX() + offset, 0, W, 5);
-		entities.add(p);
-		lastPath = p;
+		
 	}
 
 	@Override

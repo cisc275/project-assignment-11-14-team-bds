@@ -20,14 +20,16 @@ public abstract class Screen extends JPanel {
         FRAME_WIDTH = w;
         FRAME_HEIGHT = h;
     }
+  
     /*
     * Must be overridden
     * How the screen renders the entities
     * */
-    public abstract void render(Collection<Collidable> c);
+    public abstract void render(List<Collidable> c);
+  
     /*
     * returns a list of buttons
-    * returns null if no buttons on the screen
+    * returns null if there are no buttons on the screen
     * */
     public List<JButton> getButtons() {return null; }
 }

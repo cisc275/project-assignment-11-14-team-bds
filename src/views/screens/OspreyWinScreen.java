@@ -2,8 +2,9 @@ package views.screens;
 
 import entities.Collidable;
 
-import java.awt.*;
 import java.util.Collection;
+import java.util.List;
+import java.awt.Graphics;
 
 public class OspreyWinScreen extends Screen{
 
@@ -30,7 +31,7 @@ public class OspreyWinScreen extends Screen{
     * no entities should be rendered on this screen
     * */
     @Override
-    public void render(Collection<Collidable> c ) {}
+    public void render(List<Collidable> c ) {}
 
 
 }

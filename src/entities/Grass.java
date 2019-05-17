@@ -7,7 +7,7 @@ import java.util.Random;
 public class Grass extends Collidable {
 	private static Sprite sprite = new Sprite(1,"res/grasspatch.jpg");
 	public Grass() {
-	    super(320,240,100 ,100);
+	    super(320,240,100 ,100, -1);
 		
 	}
     @Override
