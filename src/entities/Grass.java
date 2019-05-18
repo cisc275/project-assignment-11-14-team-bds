@@ -40,7 +40,7 @@ public class Grass extends Collidable {
     	int left = getX() - (getWidth()/2);
 		int top = getY() - (getHeight()/2);
     	g.setColor(Color.GREEN);
-    	g.drawImage(sprite.getCurrentFrame(), this.xPos, this.yPos, this.width, this.height, null);
+    	g.drawImage(sprite.getCurrentFrame(), this.xPos, this.yPos - height, this.width, this.height, null);
     }
     @Override
     public void update() {

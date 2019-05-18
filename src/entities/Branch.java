@@ -30,7 +30,7 @@ public class Branch extends Collidable {
 	@Override
 	public void render(Graphics g) {
 		g.setColor(Color.BLACK);
-		g.fillRect(xPos, yPos, width, height);
+		g.fillRect(xPos, yPos - height, width, height);
 	}
 
 	@Override

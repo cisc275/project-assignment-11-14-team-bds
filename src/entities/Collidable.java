@@ -30,7 +30,7 @@ public abstract class Collidable implements Comparable<Collidable> {
     }
     public boolean collideWith(Collidable that) {
         if (this.getX() > that.getX() && this.getX() < (that.getX() + that.getWidth())) {
-            if (this.getY() > that.getY() && this.getY() < (that.getY() + that.getHeight())) {
+            if (this.getY() < that.getY() && this.getY() > (that.getY() - that.getHeight())) {
                 return true;
             }
         }

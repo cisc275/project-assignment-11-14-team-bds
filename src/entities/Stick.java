@@ -18,7 +18,7 @@ public class Stick extends Collidable {
 	
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(sprite.getCurrentFrame(), this.xPos, this.yPos, this.width, this.height, null);
+		g.drawImage(sprite.getCurrentFrame(), this.xPos, this.yPos - height, this.width, this.height, null);
 		g.setColor(Color.BLACK);
 		//g.drawString(Integer.toString(counter), this.xPos, this.yPos); //temp
 	}

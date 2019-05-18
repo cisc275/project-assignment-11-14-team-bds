@@ -45,7 +45,7 @@ public class Wind extends Collidable {
 	@Override
 	public void render(Graphics g) {
 		g.setColor(Color.WHITE);
-		g.fillRect(getX(), getY(), getWidth(), getHeight());
+		g.fillRect(getX(), getY() - height, getWidth(), getHeight());
 	    g.setColor(Color.BLACK);
 		g.drawString(directionString(direction), getX(), getY() + 20);
 	}

@@ -29,7 +29,7 @@ public class Pond extends Collidable {
 	public void render(Graphics g, List<Sprite> c) {
 		//g.setColor(Color.BLUE);
 		//g.fillRect(getX(), getY(), getWidth(), getHeight());
-		g.drawImage(c.get(2).getCurrentFrame(), xPos, yPos, this.width, this.height, null);
+		g.drawImage(c.get(2).getCurrentFrame(), xPos, yPos - height, this.width, this.height, null);
 	    }
 	
 

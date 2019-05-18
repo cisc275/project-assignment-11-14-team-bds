@@ -87,7 +87,7 @@ public class OspreyModel extends Model {
 	}
 	
 	private void spawnEnemy() {
-		int a = Randoms.getRandomInt(80);
+		int a = Randoms.getRandomInt(120);
 		if (a == 2) {
 			//entities.add(new Enemy(r.nextInt(WIDTH), 5, 125, 100));
 		} else if (a == 1) {

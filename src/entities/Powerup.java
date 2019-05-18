@@ -17,7 +17,7 @@ public class Powerup extends Collidable {
     @Override
     public void render(Graphics g) {
     	g.setColor(Color.YELLOW);
-    	g.fillOval(getX(), getY(), getWidth(), getHeight());
+    	g.fillOval(getX(), getY() - height, getWidth(), getHeight());
     }
 
     @Override

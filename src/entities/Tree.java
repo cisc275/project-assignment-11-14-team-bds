@@ -30,7 +30,7 @@ public class Tree extends Collidable {
 
 	@Override
 	public void render(Graphics g, List<Sprite> c) {
-		g.drawImage(c.get(SPRITE).getCurrentFrame(), xPos, yPos, this.width, this.height, null);
+		g.drawImage(c.get(SPRITE).getCurrentFrame(), xPos, yPos - height, this.width, this.height, null);
 	}
 	
 	public void decHealth(Bird bird) {
