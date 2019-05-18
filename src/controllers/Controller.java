@@ -18,11 +18,13 @@ public class Controller {
 	
 	private final int BIRD_X = 8;
 	private final int BIRD_Y = 10;
-	
+    private final int GAME_DURATION = 10;
+    private final int SWITCH_GAME_STATE = 4;
+
 	/**
 		@desc Constructor for controller
-		@param Model m - instance of model
-		@param View v - instance of view
+		@param m - instance of model
+		@param v - instance of view
 	 */
 	public Controller(Model m, View v) {
 		this.model = m;
@@ -34,11 +36,11 @@ public class Controller {
 		buttons.get(2).addActionListener((e) -> System.exit(0));
 		setKeyListener(this.view);
 	}
-	
+
 	/**
 		@desc Switch for controller, takes in model and view and sets a keyListener to the view
-		@param Model m - instance of model
-		@param String s - string representing the view to switch to
+		@param m - instance of model
+		@param  s - string representing the view to switch to
 		@return void
 	 */
 	public void setInstance(Model m, String s) {
@@ -58,6 +60,11 @@ public class Controller {
                 Timer time = new Timer(50, new AbstractAction() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
+                        	if (model.checkGameState(GAME_DURATION)) {
+                        		setInstance(model, View.OSPREY_WIN);
+
+                        	};
+                        	//model.checkGameState(SWITCH_GAME_STATE);
                         	model.updateCollidables();
                         	view.render(model.getEntities());
                         }
@@ -69,7 +76,7 @@ public class Controller {
 	/**
 	 * @desc Sets up a key listener to the view which increases the speed of the bird in the model
 	 * depending on which key is pressed and then resets it back to 0 when you let go
-	 * @param View v - instance of view to display
+	 * @param v - instance of view to display
 	 * @return void
 	 */
 	private void setKeyListener(View v) {
