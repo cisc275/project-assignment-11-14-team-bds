@@ -1,6 +1,7 @@
 package views.screens;
 
 import entities.Collidable;
+import views.View;
 
 import javax.swing.*;
 import java.util.Collection;
@@ -10,15 +11,20 @@ public abstract class Screen extends JPanel {
 
     public final int FRAME_HEIGHT;
     public final int FRAME_WIDTH;
-
+    protected View view;
     /*
     * Sets the size of the frame
     * @param w, frame width
     * @param h, frame height
     * */
+    public Screen(int w, int h, View v) {
+        this(w,h);
+        view = v;
+    }
+
     public Screen(int w, int h) {
-        FRAME_WIDTH = w;
         FRAME_HEIGHT = h;
+        FRAME_WIDTH = w;
     }
   
     /*

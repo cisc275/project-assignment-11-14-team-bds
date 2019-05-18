@@ -29,6 +29,7 @@ public class View {
 	private CardLayout layout;
 	private  Screen screen;
 
+	private String current;
 	public View() {
 		frame = buildFrame(FRAME_WIDTH, FRAME_HEIGHT);
 		layout = buildLayout();
@@ -73,6 +74,8 @@ public class View {
 		c.addLayoutComponent(map.get(RAIL), RAIL);
 		map.put(OSPREY_WIN, new OspreyWinScreen(FRAME_WIDTH, FRAME_HEIGHT));
 		c.addLayoutComponent(map.get(OSPREY_WIN), OSPREY_WIN);
+		map.put(QUIZ, new Quiz(FRAME_WIDTH, FRAME_HEIGHT, this));
+		c.addLayoutComponent(map.get(QUIZ), QUIZ);
 		return c;
 	}
 	/*
@@ -84,6 +87,7 @@ public class View {
 		layer.add(map.get(OSPREY), OSPREY);
 		layer.add(map.get(RAIL), RAIL);
 		layer.add(map.get(OSPREY_WIN), OSPREY_WIN);
+		layer.add(map.get(QUIZ), QUIZ);
 		return layer;
 	}
 	/*
@@ -107,5 +111,9 @@ public class View {
 	public void changePanel(String s) {
 		layout.show(layer, s);
 		screen = map.get(s);
+		current = s;
+	}
+	public String getCurrentScreen() {
+		return current;
 	}
 }

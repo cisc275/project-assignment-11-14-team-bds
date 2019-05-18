@@ -39,6 +39,9 @@ public class ClapperScreen extends Screen{
 		g.setColor(new Color(0,255,0));
 		g.drawString("This is the Clapper Rail Game", FRAME_WIDTH / 2, FRAME_HEIGHT / 2);
 
+		if (entities == null) {
+			return;
+		}
 		for (Collidable c : entities) {
 			c.render(g);
 		}

@@ -18,6 +18,10 @@ public class MenuModel extends Model {
   @Override
   public List<Collidable> getEntities() {return null;}
 
+  @Override
+  public boolean checkGameState(int duration) {
+    return false;
+  }
 @Override
 public void setPlayerX(int x) {
 	// TODO Auto-generated method stub

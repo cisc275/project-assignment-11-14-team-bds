@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.*;
 
 import models.*;
+import views.screens.Quiz;
 import views.View;
 
 public class Controller {
@@ -65,8 +66,10 @@ public class Controller {
 
                         	};
                         	//model.checkGameState(SWITCH_GAME_STATE);
-                        	model.updateCollidables();
-                        	view.render(model.getEntities());
+                            if (! view.getCurrentScreen().equals(View.QUIZ)) {
+                                model.updateCollidables();
+                            }
+                                view.render(model.getEntities());
                         }
                     });
                 time.start();
@@ -108,7 +111,7 @@ public class Controller {
 						setInstance(new MenuModel(), View.MENU);
 						break;
 					case KeyEvent.VK_0:
-						setInstance(new MenuModel(), View.OSPREY_WIN);
+						setInstance(model, View.QUIZ);
 						break;
 				}
 			}
