@@ -11,6 +11,11 @@ public class Pond extends Collidable {
 	private boolean alreadyColl = false;
 	private int damage = 20;
 
+	public Pond(int x, int y, int w, int h) {
+		this(w,h);
+		xPos = x;
+		yPos = y;
+	}
 	public Pond(int w, int h) {
 		super(0, 0, 150, 100,2);
 		xPos = Randoms.getRandomInt((w - width) + (height/ 2));

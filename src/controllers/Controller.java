@@ -19,7 +19,7 @@ public class Controller {
 	
 	private final int BIRD_X = 8;
 	private final int BIRD_Y = 10;
-    private final int GAME_DURATION = 10;
+    private final int GAME_DURATION = 90;
     private final int SWITCH_GAME_STATE = 4;
 
 	/**
@@ -113,6 +113,8 @@ public class Controller {
 					case KeyEvent.VK_0:
 						setInstance(model, View.QUIZ);
 						break;
+					case KeyEvent.VK_1:
+						setInstance(new OspreyTutorial(), View.OSPREY);
 				}
 			}
 			@Override

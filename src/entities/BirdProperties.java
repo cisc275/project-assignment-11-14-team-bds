@@ -4,8 +4,9 @@ package entities;
 public enum BirdProperties {
 	DEFAULT(false, 1f),
 	INVINCIBLE(true, 1f),
-	SPEEDUP(false, 2.3f);
-	
+	SPEEDUP(false, 2.3f),
+	SLOWDOWN(false,.3f);
+
 	protected final boolean invincible;
 	protected final float speedMultiplier;
 	

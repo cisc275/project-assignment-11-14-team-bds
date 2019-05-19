@@ -11,7 +11,13 @@ public class Tree extends Collidable {
 	private Sprite tempSprite;
 	private int damage = 20;
 	private boolean alreadyColl = false;
-	
+
+	public Tree(int x, int y, int w, int h) {
+		this(w,h);
+		xPos = x;
+		yPos = y;
+	}
+
 	public Tree(int w, int h) {
 		super(0,0,100,175,2);
 		Random r = new Random();

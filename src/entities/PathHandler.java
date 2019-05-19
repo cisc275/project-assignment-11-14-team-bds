@@ -11,13 +11,20 @@ import java.util.Random;
 import views.View;
 
 public class PathHandler extends Collidable { //had to do this for rendering reasons
-	
+
+	Random r;
 	private LinkedList<Path> paths = new LinkedList<Path>();
 	private BufferedImage pathImage = null;
 	
 	public PathHandler() {
 		super(0,0,View.FRAME_WIDTH,View.FRAME_HEIGHT,1);
 		this.SCREEN_MOVE = 0;
+		r = new Random();
+	}
+
+	public PathHandler(int seed) {
+		this();
+		r.setSeed(seed);
 	}
 	
 /* OVERRIDDEN METHODS */
@@ -83,7 +90,6 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
 		} 
 		else {
 			Path prev = paths.getFirst();
-			Random r = new Random();
 			int W = 200;
 			int offset;
 			do {

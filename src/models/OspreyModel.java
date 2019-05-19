@@ -13,17 +13,17 @@ import entities.Wind;
 import entities.Pond;
 
 public class OspreyModel extends Model {
-	private Bird player = new Osprey();
-	private List<Collidable> entities = new ArrayList<>();
+	protected Bird player = new Osprey();
+	protected List<Collidable> entities = new ArrayList<>();
 	
-	private PathHandler pathHandler = new PathHandler();
+	PathHandler pathHandler = new PathHandler(666);
 
-	private int prevX;
-	private int prevY;
+	protected int prevX;
+	protected int prevY;
 	public OspreyModel() {
 		super();
 		entities.add(player);
-		entities.add(new Powerup());
+		//entities.add(new Powerup());
 		entities.add(pathHandler);
 	}
 	
@@ -83,7 +83,7 @@ public class OspreyModel extends Model {
 	public List<Collidable> getEntities() {return entities;};
 	
 	private boolean inBounds(Collidable c) {
-		return 	(c.getX() > 0 && c.getX() < WIDTH) && (c.getY() > 0 && c.getY() < HEIGHT);
+		return 	(c.getX() > 0 && c.getX() < WIDTH) && (c.getY() > 0 && c.getY() < HEIGHT );
 	}
 	
 	private void spawnEnemy() {
