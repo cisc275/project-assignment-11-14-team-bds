@@ -32,6 +32,16 @@ public class Sprite {
 		frames = initializeFrames(ImageHandler.loadImage(imagePath));
 	}
 	
+	public Sprite(BufferedImage[] frames) {
+		if(frames != null) {
+			this.frames = frames;
+			numFrames = frames.length;
+		}
+		else {
+			System.out.println("Warning: null frames passed into Sprite instance");
+		}
+	}
+	
 	public Sprite(int numFrames, int frameStepTime, String imagePath) {
 		this.numFrames = numFrames;
 		frames = initializeFrames(ImageHandler.loadImage(imagePath));
