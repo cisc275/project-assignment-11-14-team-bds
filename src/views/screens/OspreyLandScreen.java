@@ -26,6 +26,7 @@ public class OspreyLandScreen extends Screen{
 	private Sprite TREE2 = new Sprite(1,1,"res/tree2.png");
 	private Sprite LAKE = new Sprite(1,1,"res/lake.png");
 	private Sprite CLOUD = new Sprite(1,1,"res/Cloud.png");
+	private Sprite OSPREY = new Sprite(4,200, "res/Bird.png");
 	/*
 	* Builds the screen and adds the starting entities to the list
 	* */
@@ -37,6 +38,7 @@ public class OspreyLandScreen extends Screen{
 		sprites.add(TREE2);
 		sprites.add(LAKE);
 		sprites.add(CLOUD);
+		sprites.add(OSPREY);
 	}
 
 	/*
