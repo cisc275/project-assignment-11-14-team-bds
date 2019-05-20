@@ -130,7 +130,7 @@ public class OspreyModel extends Model {
 			entities.add(new Tree(Randoms.getRandomInt(WIDTH), 5, WIDTH, HEIGHT));
 		}
 		else if (a == 3) {
-			entities.add(new Wind(Randoms.getRandomInt(WIDTH), 5, 50,50));
+			entities.add(new Wind(Randoms.getRandomInt(WIDTH), 5, 125,75));
 		}
 		else if (a == 4) {
 			entities.add(new Pond(Randoms.getRandomInt(WIDTH), 5, WIDTH, HEIGHT));

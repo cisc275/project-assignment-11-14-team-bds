@@ -43,11 +43,12 @@ public class Wind extends Collidable {
 	}
 
 	@Override
-	public void render(Graphics g) {
-		g.setColor(Color.WHITE);
-		g.fillRect(getX(), getY() - height, getWidth(), getHeight());
-	    g.setColor(Color.BLACK);
-		g.drawString(directionString(direction), getX(), getY() + 20);
+	public void render(Graphics g, List<Sprite> l ) {
+		//g.setColor(Color.WHITE);
+		//g.fillRect(getX(), getY() - height, getWidth(), getHeight());
+	    //g.setColor(Color.BLACK);
+		//g.drawString(directionString(direction), getX(), getY() + 20);
+		g.drawImage(l.get(3).getCurrentFrame(), getX(), getY() - height, getWidth(), getHeight(), null);
 	}
 
 	public void pushBird(Bird bird) {
