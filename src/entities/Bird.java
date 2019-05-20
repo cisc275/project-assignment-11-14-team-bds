@@ -72,7 +72,7 @@ public class Bird extends Collidable {
 	 @return void
 	 */
 	public void incCount() {
-		counter = counter++;
+		counter = counter + 1;
 	}
 
 	/**
@@ -225,9 +225,10 @@ public class Bird extends Collidable {
     	if (!(that instanceof Grass) && !(that instanceof Enemy)) {
     		setHidden(false);
     	}
-    	if (that instanceof Enemy) {
+    	if (that instanceof Enemy && !isHidden()) {
     		decCount(counter);
     	}
+    	
     }
     
     

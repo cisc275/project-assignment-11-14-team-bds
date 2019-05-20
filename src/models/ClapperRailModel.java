@@ -1,6 +1,5 @@
 package models;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -16,23 +15,22 @@ import entities.Grass;
 import entities.Osprey;
 import entities.Stick;
 import entities.Nest;
-import views.ImageHandler;
+import entities.Pool;
 
 public class ClapperRailModel extends Model {
-
-
+  
 	private Bird player = new ClapperRail();
-	private Fox enemy = new Fox(300,300, 100, 100);
+	private Fox enemy = new Fox(300,300, 75, 75);
 	private List<Collidable> entities = new ArrayList<>();
 	private int sticksMap = 0;
 	private int nestCost = 20;
 	
 	public ClapperRailModel() {
 		super();
-
 		entities.add(player);
 		entities.add(enemy);
 		entities.add(new Grass());
+		entities.add(new Pool(250, 250));
 	}
 	
 	/**
@@ -68,7 +66,6 @@ public class ClapperRailModel extends Model {
 		while (i.hasNext()) {
 			Collidable c = i.next();
 			c.update();
-			
 			if (checkBounds(c) || c.shouldBeRemoved()) {
 				i.remove();
 				if (c instanceof Stick) {
@@ -92,7 +89,7 @@ public class ClapperRailModel extends Model {
 	 */
 	public void spawnStick() {
 		Random r = new Random();
-		if(r.nextInt(100) < 91 && sticksMap < 5) { //5% chance of spawn
+		if(r.nextInt(100) < 2) { //2% chance of spawn
 			System.out.println("Stick spawned");
 			entities.add(new Stick(r.nextInt(640), r.nextInt(480)));
 			sticksMap = sticksMap + 1;
@@ -104,7 +101,7 @@ public class ClapperRailModel extends Model {
 	 @return void
 	 */
 	public void decSticksMap() {
-		sticksMap = sticksMap--;
+		sticksMap = sticksMap - 1;
 	}
 	
 	/**
