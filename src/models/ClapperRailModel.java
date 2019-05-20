@@ -23,7 +23,8 @@ public class ClapperRailModel extends Model {
 	private Fox enemy = new Fox(300,300, 75, 75);
 	private List<Collidable> entities = new ArrayList<>();
 	private int sticksMap = 0;
-	private int nestCost = 20;
+	private int nestCost = 3;
+	private int count = 0;
 	
 	public ClapperRailModel() {
 		super();
@@ -35,7 +36,7 @@ public class ClapperRailModel extends Model {
 	
 	/**
 	 @desc sets the players x velocity
-	 @param int x - number of pixels to travel for x velocity
+	 @param x - number of pixels to travel for x velocity
 	 @return void
 	 */
 	@Override
@@ -45,7 +46,7 @@ public class ClapperRailModel extends Model {
 
 	/**
 	 @desc sets the players y velocity
-	 @param int y - number of pixels to travel for y velocity
+	 @param x - number of pixels to travel for y velocity
 	 @return void
 	 */
 	@Override
@@ -76,7 +77,9 @@ public class ClapperRailModel extends Model {
 			if (!player.equals(c)) {
 				if (player.collideWith(c)) {
 					player.onCollide(c);
-					c.onCollide(player);
+					if (c instanceof Stick) {
+						sticksMap--;
+					}
 				}
 			}
 		}
@@ -91,7 +94,7 @@ public class ClapperRailModel extends Model {
 		Random r = new Random();
 		if(r.nextInt(100) < 2) { //2% chance of spawn
 			System.out.println("Stick spawned");
-			entities.add(new Stick(r.nextInt(640), r.nextInt(480)));
+			entities.add(new Stick(r.nextInt(WIDTH), r.nextInt(HEIGHT)));
 			sticksMap = sticksMap + 1;
 		}
 	}

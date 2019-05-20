@@ -30,7 +30,13 @@ public class Tree extends Collidable {
 	public void onCollide(Collidable that) {
 		//System.out.println("tree");
 		if (that instanceof Bird) {
-			decHealth((Bird)that);
+			if (! alreadyColl) {
+				alreadyColl = true;
+				Bird b = (Bird) that;
+				decHealth(b);
+				b.stun();
+			}
+
 		}
 	}
 
