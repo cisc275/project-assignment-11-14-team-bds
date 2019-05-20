@@ -42,7 +42,7 @@ public class Sprite {
 		return frames[currentFrame];
 	}
 	
-	private void nextFrame() {
+	public void nextFrame() {
 		currentFrame++;
 		if(currentFrame >= numFrames) {
 			currentFrame = 0;
