@@ -10,7 +10,7 @@ public class MiniMap {
 	private Sprite sprite;
 	
 	protected int width = 250;
-	protected int height = 250;
+	protected int height = 350;
 	
 	public static final int STEPS = 12;
 	public static final BufferedImage[] images = {
