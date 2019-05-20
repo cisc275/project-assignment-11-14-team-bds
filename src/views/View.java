@@ -113,7 +113,7 @@ public class View {
 		screen = map.get(s);
 		current = s;
 	}
-	public String getCurrentScreen() {
-		return current;
+	public Screen getCurrentScreen() {
+		return map.get(current);
 	}
 }

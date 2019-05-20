@@ -19,7 +19,7 @@ public class Controller {
 	
 	private final int BIRD_X = 8;
 	private final int BIRD_Y = 10;
-    private final int GAME_DURATION = 90;
+    private final int GAME_DURATION = 5;
     private final int SWITCH_GAME_STATE = 4;
 
     private int cutscene = 380;
@@ -82,6 +82,7 @@ public class Controller {
                             	count = 0;
                             	cuts = false;
                             	setInstance(model, View.OSPREY_WIN);
+                            	view.getCurrentScreen().getScore(model.calcScore());
 							}
                         }
                     });

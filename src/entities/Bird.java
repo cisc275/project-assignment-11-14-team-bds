@@ -23,6 +23,8 @@ public class Bird extends Collidable {
 	private float speedMultiplier = 1f;
 
 	protected int stunned = 0;
+
+	protected int score = 0;
 /*
 * Initialize a bird at the starting position, set's size and health.
 * */
@@ -140,6 +142,7 @@ public class Bird extends Collidable {
 	 */
 	public void decHealth(int damage) {
 		health -= damage;
+		score--;
 		System.out.println("Damage taken: " + damage);
 		if (health <= 0) {
 			System.out.println("Game Over!");
@@ -153,6 +156,7 @@ public class Bird extends Collidable {
 	 */
 	public void incHealth(int damage) {
 		health += damage;
+		score += 5;
 		System.out.println("Damage healed: " + damage);
 		if (health >= MAX_HEALTH) {
 			health = MAX_HEALTH;
@@ -265,5 +269,9 @@ public class Bird extends Collidable {
 	@Override
 	public boolean inBounds(int w, int h) {
 		return xPos > 0 && xPos < w && yPos > 0 && yPos < h;
+	}
+
+	public int getScore() {
+		return score;
 	}
 }

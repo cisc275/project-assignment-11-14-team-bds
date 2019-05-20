@@ -86,7 +86,9 @@ public class OspreyModel extends Model {
 					}
 				}
 			}
+			total++;
 			if (pathHandler.collideWith(player)) {
+				score++;
 				System.out.println("fixed this");
 			}
 			spawnEnemy();
@@ -147,5 +149,11 @@ public class OspreyModel extends Model {
 	public void place() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int calcScore() {
+		int s = player.getScore();
+		return (int) (s * (double) (score) / total);
 	}
 }

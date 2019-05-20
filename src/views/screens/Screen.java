@@ -38,4 +38,7 @@ public abstract class Screen extends JPanel {
     * returns null if there are no buttons on the screen
     * */
     public List<JButton> getButtons() {return null; }
+
+
+    public void getScore(int a) {}
 }
