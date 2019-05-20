@@ -6,6 +6,7 @@ import java.awt.Graphics;
 public class Stick extends Collidable {
 	
 	private static Sprite sprite = new Sprite(1, "res/stick.png");
+	private boolean alreadyColl = false;
 	
 	public Stick(int xPos, int yPos) {
 		this.xPos = xPos;
@@ -30,10 +31,12 @@ public class Stick extends Collidable {
 	}
 	
 	public void getStick(Bird c) {
-		if (c.isDiving()) {
-			c.incCount();
+		if (c.isDiving())
 			this.toBeRemoved = true;
-		}
+			alreadyColl = true;
+			 if (this.toBeRemoved == true) {
+				 c.incCount();
+			 }
 	}
 	
 }

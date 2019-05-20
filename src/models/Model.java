@@ -39,6 +39,10 @@ public abstract class Model {
 	public void endGame() {
 
 	}
+	
+	public int getCount() {
+		return -1;
+	}
 
 	public int calcScore() {
 		return 0;

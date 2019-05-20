@@ -21,10 +21,6 @@ public class Bird extends Collidable {
 	protected int xDir;
 	protected int yDir;
 	private float speedMultiplier = 1f;
-
-	protected int stunned = 0;
-
-	protected int score = 0;
 /*
 * Initialize a bird at the starting position, set's size and health.
 * */
@@ -33,10 +29,6 @@ public class Bird extends Collidable {
 		// TODO: fix magic numbers
 		super(640, 600, 30, 30, 0);
 		this.health = 100;
-	}
-
-	public void stun() {
-		stunned = 40;
 	}
 
 	/**
@@ -80,7 +72,7 @@ public class Bird extends Collidable {
 	 @return void
 	 */
 	public void incCount() {
-		counter++;
+		counter = counter + 1;
 	}
 
 	/**
@@ -142,7 +134,6 @@ public class Bird extends Collidable {
 	 */
 	public void decHealth(int damage) {
 		health -= damage;
-		score--;
 		System.out.println("Damage taken: " + damage);
 		if (health <= 0) {
 			System.out.println("Game Over!");
@@ -156,7 +147,6 @@ public class Bird extends Collidable {
 	 */
 	public void incHealth(int damage) {
 		health += damage;
-		score += 5;
 		System.out.println("Damage healed: " + damage);
 		if (health >= MAX_HEALTH) {
 			health = MAX_HEALTH;
@@ -235,18 +225,15 @@ public class Bird extends Collidable {
     	if (!(that instanceof Grass) && !(that instanceof Enemy)) {
     		setHidden(false);
     	}
-    	if (that instanceof Enemy) {
+    	if (that instanceof Enemy && !isHidden()) {
     		decCount(counter);
     	}
+    	
     }
     
     
     @Override
     public void update() {
-		if (stunned > 0) {
-			stunned--;
-			return;
-		}
 		this.xPos += this.xDir * speedMultiplier;
 		this.yPos += this.yDir * speedMultiplier;
 		pathHealth = pathHealth - 1;
@@ -269,9 +256,5 @@ public class Bird extends Collidable {
 	@Override
 	public boolean inBounds(int w, int h) {
 		return xPos > 0 && xPos < w && yPos > 0 && yPos < h;
-	}
-
-	public int getScore() {
-		return score;
 	}
 }
