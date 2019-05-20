@@ -30,11 +30,10 @@ public class Stick extends Collidable {
 	}
 	
 	public void getStick(Bird c) {
-		if (c.isDiving())
+		if (c.isDiving()) {
+			c.incCount();
 			this.toBeRemoved = true;
-			 if (this.toBeRemoved == true) {
-				 c.incCount();
-			 }
+		}
 	}
 	
 }

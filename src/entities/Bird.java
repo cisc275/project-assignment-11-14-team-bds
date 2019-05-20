@@ -80,7 +80,7 @@ public class Bird extends Collidable {
 	 @return void
 	 */
 	public void incCount() {
-		counter = counter++;
+		counter++;
 	}
 
 	/**
