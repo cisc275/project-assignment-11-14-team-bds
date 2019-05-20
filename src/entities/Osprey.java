@@ -9,7 +9,7 @@ public class Osprey extends Bird {
 	//time for animation to go to next frame in milliseconds
 	private final int ANIMATION_STEP_TIME = 100;
 	private Sprite tempSprite;
-	
+
 	public Osprey() {
 		tempSprite = new Sprite(4, ANIMATION_STEP_TIME, "res/bird-temp.png");
 	}

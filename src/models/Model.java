@@ -5,14 +5,15 @@ import entities.*;
 
 
 public abstract class Model {
-	protected int WIDTH = 640;
-	protected int HEIGHT = 480;
+	protected int WIDTH = 1280;
+	protected int HEIGHT = 760;
 	
 	protected final int ONESECOND = 1000;
 	protected long initialTime = System.currentTimeMillis();
 	
 	private boolean hasOccured = false;
-	
+
+	protected boolean ending = false;
 	
 	public abstract void setPlayerX(int x);
 	public abstract void setPlayerY(int y);
@@ -30,5 +31,8 @@ public abstract class Model {
 			return true;
 		}
 		return false;
+	}
+	public void endGame() {
+
 	}
 }

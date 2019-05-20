@@ -44,6 +44,10 @@ public abstract class Collidable implements Comparable<Collidable> {
         //System.out.println("Overload this collision");
     }
 
+    public boolean inBounds(int w, int h) {
+        return xPos > 0 && xPos + width < w && yPos > -250 && yPos < h + 250;
+    }
+
     public void render(Graphics g, List<Sprite> c) {
         render(g);
     }

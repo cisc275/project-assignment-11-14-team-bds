@@ -12,8 +12,8 @@ import entities.Collidable;
 import views.screens.*;
 
 public class View {
-	public static int FRAME_WIDTH = 640;
-	public static int FRAME_HEIGHT = 480;
+	public static int FRAME_WIDTH = 1280;
+	public static int FRAME_HEIGHT = 760;
 
 	public static final String MENU = "menu";
 	public static final String OSPREY = "osprey";

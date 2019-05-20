@@ -19,9 +19,12 @@ public class Controller {
 	
 	private final int BIRD_X = 8;
 	private final int BIRD_Y = 10;
-    private final int GAME_DURATION = 90;
+    private final int GAME_DURATION = 10;
     private final int SWITCH_GAME_STATE = 4;
 
+    private int cutscene = 380;
+    private int count = 0;
+    private boolean cuts = false;
 	/**
 		@desc Constructor for controller
 		@param m - instance of model
@@ -62,14 +65,24 @@ public class Controller {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                         	if (model.checkGameState(GAME_DURATION)) {
-                        		setInstance(model, View.OSPREY_WIN);
-
+                        		//setInstance(model, View.OSPREY_WIN);
+								model.endGame();
+								cuts = true;
+								count = 0;
                         	};
                         	//model.checkGameState(SWITCH_GAME_STATE);
                             if (! view.getCurrentScreen().equals(View.QUIZ)) {
                                 model.updateCollidables();
+                                if (cuts) {
+									count++;
+								}
                             }
                                 view.render(model.getEntities());
+                            if (count > cutscene) {
+                            	count = 0;
+                            	cuts = false;
+                            	setInstance(model, View.OSPREY_WIN);
+							}
                         }
                     });
                 time.start();

@@ -86,7 +86,7 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
 	 */
 	public void generatePath() {
 		if(paths.size() < 1) {
-			addPath(new Path(300, 0, 100, 20));
+			addPath(new Path(640, 0, 100, 20));
 		} 
 		else {
 			Path prev = paths.getFirst();

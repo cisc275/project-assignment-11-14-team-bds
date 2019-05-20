@@ -24,9 +24,10 @@ public class Bird extends Collidable {
 /*
 * Initialize a bird at the starting position, set's size and health.
 * */
+
 	public Bird(){
 		// TODO: fix magic numbers
-		super(320, 400, 30, 30, 0);
+		super(640, 600, 30, 30, 0);
 		this.health = 100;
 	}
 
@@ -257,4 +258,8 @@ public class Bird extends Collidable {
 		speedMultiplier = prop.speedMultiplier;
 	}
 
+	@Override
+	public boolean inBounds(int w, int h) {
+		return xPos > 0 && xPos < w && yPos > 0 && yPos < h;
+	}
 }
