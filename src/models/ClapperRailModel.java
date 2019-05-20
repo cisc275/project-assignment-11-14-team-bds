@@ -81,10 +81,17 @@ public class ClapperRailModel extends Model {
 				if (player.collideWith(c)) {
 					player.onCollide(c);
 					if (c instanceof Stick) {
+						flag1 = true;
 						sticksMap--;
+					}
+					if (c instanceof Grass) {
+						flag2 = true;
 					}
 				}
 			}
+		}
+		if (player.getCount() > 20) {
+			flag3 = true;
 		}
 		spawnStick();
 	}

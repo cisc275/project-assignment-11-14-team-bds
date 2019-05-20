@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import entities.Collidable;
+import entities.Sprite;
 import views.ImageHandler;
 import views.View;
 
@@ -20,6 +21,10 @@ public class ClapperScreen extends Screen{
 	private final String BG_IMAGE_PATH = "res/ClapperRailBG.png";
 	private BufferedImage background;
 	Collection<Collidable> entities = new ArrayList<>();
+
+	Sprite t1 = new Sprite(1,1,"res/ClapperInstro1.png");
+	Sprite t2 = new Sprite(1,1,"res/ClapperInstro2.png");
+	Sprite t3 = new Sprite(1,1,"res/ClapperInstro3.png");
 	/*
 	* Builds the screen by the size w and h
 	* */
@@ -50,5 +55,15 @@ public class ClapperScreen extends Screen{
 		for (Collidable c : entities) {
 			c.render(g);
 		}
+		if  (! flag1) {
+			g.drawImage(t1.getCurrentFrame(),700,550,500,200,null);
+		}
+		if (flag1 && !flag2) {
+			g.drawImage(t2.getCurrentFrame(),701,550,500,200,null);
+		}
+		if (flag3) {
+			g.drawImage(t3.getCurrentFrame(),702,550,500,200,null);
+		}
+
 	}
 }

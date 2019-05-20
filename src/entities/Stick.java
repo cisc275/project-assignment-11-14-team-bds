@@ -11,8 +11,8 @@ public class Stick extends Collidable {
 	public Stick(int xPos, int yPos) {
 		this.xPos = xPos;
 		this.yPos = yPos;
-		this.width = 90;
-		this.height = 60;
+		this.width = 100;
+		this.height = 70;
 	}
   
 	public void update(){};
@@ -21,6 +21,7 @@ public class Stick extends Collidable {
 	public void render(Graphics g) {
 		g.drawImage(sprite.getCurrentFrame(), this.xPos, this.yPos - height, this.width, this.height, null);
 		g.setColor(Color.BLACK);
+		g.drawRect(this.xPos,this.yPos-height,width,height);
 		//g.drawString(Integer.toString(counter), this.xPos, this.yPos); //temp
 	}
 	
