@@ -2,6 +2,7 @@ package views.screens;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 import javax.swing.*;
 
 import entities.Collidable;
+import views.ImageHandler;
 
 public class MenuScreen extends Screen {
 
@@ -36,18 +38,33 @@ public class MenuScreen extends Screen {
 		b.addActionListener(a);
 		list.add(b);
 	}
+	
+	/*
+	* Build each Button, add an event listener to each button
+	* */
+	private void buttonFactory(ArrayList<JButton> list, BufferedImage image, ActionListener a) {
+		JButton b = new JButton();
+		b.setBorderPainted(false);
+		b.setBorder(null);
+		b.setMargin(new Insets(0, 0, 0, 0));
+		b.setContentAreaFilled(false);
+		b.setIcon(new ImageIcon(image));
+		b.addActionListener(a);
+		list.add(b);
+	}
+	
 	/*
 	* Called once, builds the necessary buttons for the screen
 	* */
 	private void addButtons() {
-		buttonFactory(buttons, "Osprey", (e) -> {
-				System.out.println("Osprey");
+		buttonFactory(buttons, ImageHandler.loadImage("res/OspreyMenu.png"), (e) -> {
+			System.out.println("Osprey");
 		});
-		buttonFactory(buttons, "Clapper Rail",(e) -> {
-				System.out.println("clap");
+		buttonFactory(buttons, ImageHandler.loadImage("res/Clapper Menu.png"), (e) -> {
+			System.out.println("clap");
 		});
 		buttonFactory(buttons, "Exit", (e) -> {
-				System.exit(0);
+			System.exit(0);
 		});
 	}
 	/*
