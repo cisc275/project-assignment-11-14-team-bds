@@ -35,4 +35,8 @@ public abstract class Model {
 	public void endGame() {
 
 	}
+
+	public int calcScore() {
+		return 0;
+	}
 }
