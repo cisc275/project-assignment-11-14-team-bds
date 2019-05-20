@@ -25,7 +25,16 @@ public class Osprey extends Bird {
 		//g.drawImage(ImageHandler.applySaturationFilter(tempSprite.getCurrentFrame(), saturation), top, left, this.width, this.height, null);
 		g.drawImage(l.get(4).getCurrentFrame(), top, left, this.width, this.height, null);
     }
-	
+
+    @Override
+	public void update() {
+		if (diving) {
+			this.xPos += this.xDir * .5;
+			this.yPos -= 20;
+		} else {
+			super.update();
+		}
+	}
 	public void Dive(){}
 	public boolean isAlive() {return true; }	
 }

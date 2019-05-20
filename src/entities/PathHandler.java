@@ -53,11 +53,6 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
     }
 	
 	@Override
-	public boolean collideWith(Collidable that) {
-		return false;
-    }
-	
-	@Override
     public void onCollideBird(Bird b) {
     }
 	
@@ -163,5 +158,14 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
 		
 		pathImage = img;
 		g.dispose();
+	}
+	@Override
+	public boolean collideWith(Collidable c) {
+		for (Path p : paths) {
+			if (c.collideWith(p)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

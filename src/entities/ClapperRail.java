@@ -20,7 +20,17 @@ public class ClapperRail extends Bird{
 		int left = this.yPos - (this.height /2 );
 		g.drawImage(sprite.getCurrentFrame(), top, left, this.width, this.height, null);
     }
-	
+
+    @Override
+	public void update() {
+		if (diving) {
+			xPos += xDir * .5;
+			yPos += yDir * .5;
+		} else {
+			super.update();
+		}
+	}
+
 	public int getNumBranches() {
 		return this.branches;
 	}

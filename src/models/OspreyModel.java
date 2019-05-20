@@ -84,6 +84,9 @@ public class OspreyModel extends Model {
 					}
 				}
 			}
+			if (pathHandler.collideWith(player)) {
+				System.out.println("fixed this");
+			}
 			spawnEnemy();
 			pathHandler.generatePath();
 		}

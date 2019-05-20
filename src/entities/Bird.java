@@ -15,8 +15,8 @@ public class Bird extends Collidable {
 	private int counter = 0;
 	private boolean invincible = false;
 	private boolean wind = false;
-	private boolean diving = false;
-	private boolean hidden = false;
+	protected boolean diving = false;
+	protected boolean hidden = false;
 	
 	protected int xDir;
 	protected int yDir;
@@ -233,17 +233,11 @@ public class Bird extends Collidable {
     
     @Override
     public void update() {
-		if (diving) {
-			this.xPos += this.xDir * .5;
-			this.yPos -= 20;
-		}
-		else {
-			this.xPos += this.xDir * speedMultiplier;
-			this.yPos += this.yDir * speedMultiplier;
-			pathHealth = pathHealth - 1;
-			//hidden = false;
-		}
-    }
+		this.xPos += this.xDir * speedMultiplier;
+		this.yPos += this.yDir * speedMultiplier;
+		pathHealth = pathHealth - 1;
+
+	}
 
 	public int getXVel() { return xDir; }
 	public int getYVel() { return yDir; }
