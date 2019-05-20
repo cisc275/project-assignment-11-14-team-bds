@@ -21,6 +21,7 @@ public class Controller {
 	private final int BIRD_Y = 10;
     private final int GAME_DURATION = 5;
     private final int SWITCH_GAME_STATE = 4;
+    private final int REQ_STICK_AMOUNT = 3;
 
     private int cutscene = 380;
     private int count = 0;
@@ -35,8 +36,16 @@ public class Controller {
 		this.view = v;
 
 		List<JButton> buttons = this.view.getJButtion();
-		buttons.get(0).addActionListener((e) -> setInstance(new OspreyModel(), View.OSPREY));
-		buttons.get(1).addActionListener((e) -> setInstance(new ClapperRailModel(), View.RAIL));
+		buttons.get(0).addActionListener((e) -> {
+				OspreyModel player = new OspreyModel();
+				setInstance(player, View.OSPREY);
+			}
+		);
+		buttons.get(1).addActionListener((e) -> {
+				ClapperRailModel player = new ClapperRailModel();
+				setInstance(player, View.RAIL);
+			}
+		);
 		buttons.get(2).addActionListener((e) -> System.exit(0));
 		setKeyListener(this.view);
 	}
@@ -125,7 +134,9 @@ public class Controller {
 						setInstance(new MenuModel(), View.MENU);
 						break;
 					case KeyEvent.VK_0:
-						setInstance(model, View.QUIZ);
+						if (model.getCount() >= REQ_STICK_AMOUNT) {
+							setInstance(model, View.QUIZ);
+						}
 						break;
 					case KeyEvent.VK_1:
 						setInstance(new OspreyTutorial(), View.OSPREY);

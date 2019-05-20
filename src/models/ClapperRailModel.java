@@ -56,6 +56,11 @@ public class ClapperRailModel extends Model {
 		player.setYVelocity(x);
 	}
 
+	@Override
+	public int getCount() {
+		return player.getCount();
+	}
+	
 	/**
 	@desc handles collisions between game objects
 	@return void
