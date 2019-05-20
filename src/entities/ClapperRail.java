@@ -9,6 +9,8 @@ public class ClapperRail extends Bird{
 	
 	
 	public ClapperRail() {
+		this.width = 50;
+		this.height = 50;
 		sprite = new Sprite(1, "res/clapper-rail.png");
 	}
 	

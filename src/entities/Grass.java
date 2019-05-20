@@ -5,9 +5,9 @@ import java.awt.Graphics;
 import java.util.Random;
 
 public class Grass extends Collidable {
-	private static Sprite sprite = new Sprite(1,"res/grasspatch.jpg");
+	private static Sprite sprite = new Sprite(1,"res/Bush.png");
 	public Grass() {
-	    super(320,240,100 ,100, -1);
+	    super(320,240,250 ,200, -1);
 		
 	}
     @Override

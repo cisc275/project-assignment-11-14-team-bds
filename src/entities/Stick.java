@@ -10,8 +10,8 @@ public class Stick extends Collidable {
 	public Stick(int xPos, int yPos) {
 		this.xPos = xPos;
 		this.yPos = yPos;
-		this.width = 50;
-		this.height = 20;
+		this.width = 90;
+		this.height = 60;
 	}
   
 	public void update(){};
