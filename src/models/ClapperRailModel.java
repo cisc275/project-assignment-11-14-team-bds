@@ -1,5 +1,6 @@
 package models;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -15,17 +16,20 @@ import entities.Grass;
 import entities.Osprey;
 import entities.Stick;
 import entities.Nest;
+import views.ImageHandler;
 
 public class ClapperRailModel extends Model {
-  
+
+
 	private Bird player = new ClapperRail();
-	private Fox enemy = new Fox(300,300, 75, 75);
+	private Fox enemy = new Fox(300,300, 100, 100);
 	private List<Collidable> entities = new ArrayList<>();
 	private int sticksMap = 0;
 	private int nestCost = 20;
 	
 	public ClapperRailModel() {
 		super();
+
 		entities.add(player);
 		entities.add(enemy);
 		entities.add(new Grass());

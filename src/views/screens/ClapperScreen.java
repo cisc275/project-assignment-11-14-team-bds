@@ -2,6 +2,7 @@ package views.screens;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -10,16 +11,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import entities.Collidable;
+import views.ImageHandler;
 import views.View;
 
 public class ClapperScreen extends Screen{
 
+
+	private final String BG_IMAGE_PATH = "res/ClapperRailBG.png";
+	private BufferedImage background;
 	Collection<Collidable> entities = new ArrayList<>();
 	/*
 	* Builds the screen by the size w and h
 	* */
 	public ClapperScreen(int w, int h) {
 		super(w,h);
+		background= ImageHandler.loadImage(BG_IMAGE_PATH);
 	}
 
 	/*
@@ -37,8 +43,7 @@ public class ClapperScreen extends Screen{
 		super.paintComponent(g);
 
 		g.setColor(new Color(0,255,0));
-		g.drawString("This is the Clapper Rail Game", FRAME_WIDTH / 2, FRAME_HEIGHT / 2);
-
+		g.drawImage(background, 0,0,FRAME_WIDTH, FRAME_HEIGHT, null);
 		if (entities == null) {
 			return;
 		}
