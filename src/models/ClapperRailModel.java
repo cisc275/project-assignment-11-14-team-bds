@@ -15,7 +15,6 @@ import entities.Grass;
 import entities.Osprey;
 import entities.Stick;
 import entities.Nest;
-import entities.Pool;
 
 public class ClapperRailModel extends Model {
   
@@ -23,7 +22,7 @@ public class ClapperRailModel extends Model {
 	private Fox enemy = new Fox(300,300, 75, 75);
 	private List<Collidable> entities = new ArrayList<>();
 	private int sticksMap = 0;
-	private int nestCost = 3;
+	private int nestCost = 20;
 	private int count = 0;
 	
 	public ClapperRailModel() {
@@ -31,7 +30,6 @@ public class ClapperRailModel extends Model {
 		entities.add(player);
 		entities.add(enemy);
 		entities.add(new Grass());
-		entities.add(new Pool(250, 250));
 	}
 	
 	/**

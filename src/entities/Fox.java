@@ -64,6 +64,6 @@ public class Fox extends Enemy {
 	public void update() {
 		xPos += xDir;
 		yPos += yDir;
-		findBird(player);
+		//findBird(player);
 	}
 }
