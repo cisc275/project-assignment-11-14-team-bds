@@ -32,7 +32,7 @@ public class Bird extends Collidable {
 
 	/**
 	 @desc sets the velocity along the x vector
-	 @param int x - velocity value
+	 @param x - velocity value
 	 @return void
 	 */
 	public void setXVelocity(int x) {
@@ -40,7 +40,7 @@ public class Bird extends Collidable {
 	}
 	/**
 	 @desc sets the velocity along the y vector
-	 @param int y - velocity value
+	 @param y - velocity value
 	 @return void
 	 */
 	public void setYVelocity(int y) {
@@ -49,7 +49,7 @@ public class Bird extends Collidable {
 
 	/**
 	 @desc sets the value of hidden if the bird is hidden in gamee
-	 @param booleean h - status of hidden
+	 @param h - status of hidden
 	 @return void
 	 */
 	public void setHidden(boolean h) {
@@ -76,7 +76,7 @@ public class Bird extends Collidable {
 
 	/**
 	 @desc decrements the value of counter
-	 @param int dec - amount to decrement by
+	 @param dec - amount to decrement by
 	 @return void
 	 */
 	public void decCount(int dec) {
@@ -128,7 +128,7 @@ public class Bird extends Collidable {
 	
 	/**
 	 @desc decrements the Bird's health
-	 @param int damage - the amount of health to be decremented
+	 @param damage - the amount of health to be decremented
 	 @return void
 	 */
 	public void decHealth(int damage) {
@@ -141,7 +141,7 @@ public class Bird extends Collidable {
 	
 	/**
 	 @desc increments the birds health
-	 @param int damage - amount of health to be restored
+	 @param  damage - amount of health to be restored
 	 @return void
 	 */
 	public void incHealth(int damage) {
@@ -154,9 +154,9 @@ public class Bird extends Collidable {
 	
 	/**
 	 @desc pushes bird in a certain direction when hitting wind
-	 @param int direction - direction of gust
-	 @param int moveDis - distance to move
-	 @param int time - duration of effect
+	 @param  direction - direction of gust
+	 @param  moveDis - distance to move
+	 @param  time - duration of effect
 	 @return void
 	 */
 	public void pushBird(int direction, int moveDis, int time) {
@@ -232,11 +232,16 @@ public class Bird extends Collidable {
     
     @Override
     public void update() {
-        this.xPos += this.xDir * speedMultiplier;
-        this.yPos += this.yDir * speedMultiplier;
-        pathHealth = pathHealth - 1;
-        //hidden = false;
-
+		if (diving) {
+			this.xPos += this.xDir * .5;
+			this.yPos -= 20;
+		}
+		else {
+			this.xPos += this.xDir * speedMultiplier;
+			this.yPos += this.yDir * speedMultiplier;
+			pathHealth = pathHealth - 1;
+			//hidden = false;
+		}
     }
 
 	public int getXVel() { return xDir; }
