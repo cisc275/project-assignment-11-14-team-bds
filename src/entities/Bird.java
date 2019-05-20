@@ -21,6 +21,8 @@ public class Bird extends Collidable {
 	protected int xDir;
 	protected int yDir;
 	private float speedMultiplier = 1f;
+
+	protected int stunned = 0;
 /*
 * Initialize a bird at the starting position, set's size and health.
 * */
@@ -29,6 +31,10 @@ public class Bird extends Collidable {
 		// TODO: fix magic numbers
 		super(640, 600, 30, 30, 0);
 		this.health = 100;
+	}
+
+	public void stun() {
+		stunned = 40;
 	}
 
 	/**
@@ -233,6 +239,10 @@ public class Bird extends Collidable {
     
     @Override
     public void update() {
+		if (stunned > 0) {
+			stunned--;
+			return;
+		}
 		this.xPos += this.xDir * speedMultiplier;
 		this.yPos += this.yDir * speedMultiplier;
 		pathHealth = pathHealth - 1;

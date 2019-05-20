@@ -24,6 +24,8 @@ public class OspreyModel extends Model {
 	protected int prevX;
 	protected int prevY;
 
+	private long total = 0;
+	private long score = 0;
 
 	private int counter = 0;
 	public OspreyModel() {
