@@ -23,7 +23,7 @@ public class Osprey extends Bird {
 		int left = this.yPos - (this.height /2);
 		float saturation = Math.max((float)health/(float)MAX_HEALTH, 0f);
 		//g.drawImage(ImageHandler.applySaturationFilter(tempSprite.getCurrentFrame(), saturation), top, left, this.width, this.height, null);
-		g.drawImage(l.get(4).getCurrentFrame(), top, left, this.width, this.height, null);
+		g.drawImage(ImageHandler.applySaturationFilter(l.get(4).getCurrentFrame(), saturation), top, left, this.width, this.height, null);
     }
 
     @Override

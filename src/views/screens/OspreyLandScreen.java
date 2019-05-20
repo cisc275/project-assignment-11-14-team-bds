@@ -78,7 +78,7 @@ public class OspreyLandScreen extends Screen{
 		super.paintComponent(g);
 		//draw background first
 		//draw it twice, one above and one below
-		if(backgroundScrollAmount < FRAME_HEIGHT) { //probably not the best place for this to be
+		if(backgroundScrollAmount < FRAME_HEIGHT) {
 			backgroundScrollAmount += backgroundScrollSpeed;
 		} else {
 			backgroundScrollAmount = 0;
