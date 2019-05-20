@@ -7,6 +7,10 @@ import entities.*;
 public abstract class Model {
 	protected int WIDTH = 1280;
 	protected int HEIGHT = 760;
+
+	protected boolean flag1 = false;
+	protected boolean flag2 = false;
+	protected boolean flag3 = false;
 	
 	protected final int ONESECOND = 1000;
 	protected long initialTime = System.currentTimeMillis();
@@ -39,4 +43,9 @@ public abstract class Model {
 	public int calcScore() {
 		return 0;
 	}
+
+	public boolean getf1() {return flag1; }
+	public boolean getf2() {return flag2; }
+	public boolean getf3() {return flag3; }
+
 }

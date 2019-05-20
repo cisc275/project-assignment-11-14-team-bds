@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.*;
 
+import entities.Sprite;
 import models.*;
 import views.screens.Quiz;
 import views.View;
@@ -19,12 +20,13 @@ public class Controller {
 	
 	private final int BIRD_X = 8;
 	private final int BIRD_Y = 10;
-    private final int GAME_DURATION = 5;
+    private final int GAME_DURATION = 15;
     private final int SWITCH_GAME_STATE = 4;
 
     private int cutscene = 380;
     private int count = 0;
     private boolean cuts = false;
+
 	/**
 		@desc Constructor for controller
 		@param m - instance of model
@@ -77,8 +79,11 @@ public class Controller {
 									count++;
 								}
                             }
-                                view.render(model.getEntities());
-                            if (count > cutscene) {
+                            view.setf1(model.getf1());
+                            view.setf2(model.getf2());
+                            view.setf3(model.getf3());
+							view.render(model.getEntities());
+							if (count > cutscene) {
                             	count = 0;
                             	cuts = false;
                             	setInstance(model, View.OSPREY_WIN);

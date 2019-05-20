@@ -83,13 +83,16 @@ public class OspreyModel extends Model {
 				if (!player.equals(c)) {
 					if (player.collideWith(c)) {
 						player.onCollide(c);
+						if (c instanceof Pond) {
+							flag2 = true;
+						}
 					}
 				}
 			}
 			total++;
 			if (pathHandler.collideWith(player)) {
 				score++;
-				System.out.println("fixed this");
+				flag1 = true;
 			}
 			spawnEnemy();
 			pathHandler.generatePath();

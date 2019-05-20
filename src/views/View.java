@@ -116,4 +116,9 @@ public class View {
 	public Screen getCurrentScreen() {
 		return map.get(current);
 	}
+
+
+	public void setf1(boolean b) {map.get(current).setf1(b);}
+	public void setf2(boolean b) {map.get(current).setf2(b);}
+	public void setf3(boolean b) {map.get(current).setf3(b);}
 }

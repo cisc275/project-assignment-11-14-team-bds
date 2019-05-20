@@ -35,6 +35,8 @@ public class OspreyLandScreen extends Screen{
 	private Sprite LAKE = new Sprite(1,1,"res/lake.png");
 	private Sprite CLOUD = new Sprite(1,1,"res/Cloud.png");
 	private Sprite OSPREY = new Sprite(4,200, "res/Bird.png");
+	private Sprite T1 = new Sprite(1,1,"res/OspreyInstructionMove1.png");
+	private Sprite T2 = new Sprite(1,1,"res/OspreyInstructionMove.png");
 	/*
 	* Builds the screen and adds the starting entities to the list
 	* */
@@ -96,5 +98,12 @@ public class OspreyLandScreen extends Screen{
 		}
 		
 		g.drawImage(minimap.getCurrentImage(), 0,FRAME_HEIGHT-minimap.getHeight(),minimap.getWidth(),minimap.getHeight(),null);
+		System.out.println(flag1);
+		if(!flag1) {
+			g.drawImage(T1.getCurrentFrame(), 700,550, 500,200,null);
+		}
+		if (!flag2 && flag1) {
+			g.drawImage(T2.getCurrentFrame(), 710, 550, 500,200,null);
+		}
 	}
 }

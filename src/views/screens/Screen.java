@@ -12,6 +12,10 @@ public abstract class Screen extends JPanel {
     public final int FRAME_HEIGHT;
     public final int FRAME_WIDTH;
     protected View view;
+
+    protected boolean flag1;
+    protected boolean flag2;
+    protected boolean flag3;
     /*
     * Sets the size of the frame
     * @param w, frame width
@@ -41,4 +45,10 @@ public abstract class Screen extends JPanel {
 
 
     public void getScore(int a) {}
+
+    public void setf1(boolean b) {
+        flag1 = b;
+    }
+    public void setf2(boolean b) { flag2 = b; }
+    public void setf3(boolean b) { flag3 = b; }
 }
