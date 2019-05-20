@@ -1,15 +1,21 @@
 package views.screens;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
+import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import entities.Collidable;
 import entities.Sprite;
 import views.ImageHandler;
+import views.MiniMap;
 import views.View;
 
 public class OspreyLandScreen extends Screen{
@@ -22,6 +28,8 @@ public class OspreyLandScreen extends Screen{
 	private BufferedImage backgroundImage;
 	private int backgroundScrollSpeed = 2;
 
+	private MiniMap minimap = new MiniMap();
+	
 	private Sprite TREE1 = new Sprite(1, 1, "res/tree1.png");
 	private Sprite TREE2 = new Sprite(1,1,"res/tree2.png");
 	private Sprite LAKE = new Sprite(1,1,"res/lake.png");
@@ -39,6 +47,19 @@ public class OspreyLandScreen extends Screen{
 		sprites.add(LAKE);
 		sprites.add(CLOUD);
 		sprites.add(OSPREY);
+		
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+            public void run() {
+                Timer timer = new Timer(8000, new AbstractAction() {
+                	@Override
+                    public void actionPerformed(ActionEvent e) {
+                		minimap.advance();
+                    }
+                });
+                timer.start();
+            }
+		});
 	}
 
 	/*
@@ -74,6 +95,6 @@ public class OspreyLandScreen extends Screen{
 			c.render(g,sprites);
 		}
 		
-		
+		g.drawImage(minimap.getCurrentImage(), 0,FRAME_HEIGHT-minimap.getHeight(),minimap.getWidth(),minimap.getHeight(),null);
 	}
 }
