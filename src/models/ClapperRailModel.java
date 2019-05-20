@@ -90,7 +90,7 @@ public class ClapperRailModel extends Model {
 				}
 			}
 		}
-		if (player.getCount() > 20) {
+		if (player.getCount() > 19) {
 			flag3 = true;
 		}
 		spawnStick();

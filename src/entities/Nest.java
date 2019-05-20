@@ -10,7 +10,7 @@ public class Nest extends Collidable {
 
 	public Nest(int x, int y) {
 		super(x, y, 50, 50, 1);
-		tempSprite = new Sprite(1, "res/Nest.png");
+		tempSprite = new Sprite(1,1, "res/Nest.png");
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class Nest extends Collidable {
 	}
 
 	@Override
-	public void render(Graphics g, List<Sprite> l ) {
+	public void render(Graphics g) {
 		g.drawImage(tempSprite.getCurrentFrame(), xPos, yPos - height, this.width, this.height, null);
 	}
 
