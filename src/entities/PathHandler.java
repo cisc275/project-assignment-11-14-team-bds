@@ -1,7 +1,9 @@
 package entities;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -46,9 +48,11 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
 	
 	@Override
 	public void render(Graphics g) {
+		/*
 		for(Path p : paths) {
 			p.render(g);
 		}
+		*/
 		g.drawImage(getPathImage(), this.xPos, this.yPos, this.width, this.height, null);
     }
 	
@@ -143,8 +147,8 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
 		}
 		
 		BufferedImage img = new BufferedImage(View.FRAME_WIDTH, View.FRAME_HEIGHT, BufferedImage.TYPE_INT_ARGB);
-		Graphics g = img.getGraphics();
-		g.setColor(Color.RED);
+		Graphics2D g = (Graphics2D) img.getGraphics();
+		g.setColor(new Color(255, 138, 0, 150));
 		
 		for(int i = 0; i < paths.size()-1; i++) {
 			Path path1 = paths.get(i);
@@ -152,6 +156,7 @@ public class PathHandler extends Collidable { //had to do this for rendering rea
 			//int left = Math.min(path1.getX(), path2.getX()) - this.pathWidth/2;
 			//int right = Math.max(path1.getX(), path2.getX()) - this.pathWidth/2;
 			//g.drawArc(left, path1.getY() - pathHeight/2, right-left, pathHeight, 0, 45);
+			g.setStroke(new BasicStroke(2));
 			g.drawLine(path1.xPos, path1.yPos, path2.xPos, path2.yPos);
 			g.drawLine(path1.xPos + path1.width, path1.yPos, path2.xPos + path2.width, path2.yPos);
 		}
