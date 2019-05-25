@@ -30,6 +30,7 @@ public class ClapperRailModel extends Model {
 		entities.add(player);
 		entities.add(enemy);
 		entities.add(new Grass());
+		entities.add(new Grass(700,350));
 	}
 	
 	/**
@@ -152,5 +153,8 @@ public class ClapperRailModel extends Model {
 			player.decCount(nestCost);
 		}
 	};
-  
+  @Override
+	public boolean checkGameState(int dur) {
+  		return false;
+  }
 }

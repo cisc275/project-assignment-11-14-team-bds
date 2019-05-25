@@ -63,9 +63,9 @@ public class MenuScreen extends Screen {
 		buttonFactory(buttons, ImageHandler.loadImage("res/Clapper Menu.png"), (e) -> {
 			System.out.println("clap");
 		});
-		buttonFactory(buttons, "Exit", (e) -> {
-			System.exit(0);
-		});
+		//buttonFactory(buttons, "Exit", (e) -> {
+		//	System.exit(0);
+		//});
 	}
 	/*
 	* Return a list of buttons

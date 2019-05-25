@@ -6,6 +6,10 @@ import java.util.Random;
 
 public class Grass extends Collidable {
 	private static Sprite sprite = new Sprite(1,"res/Bush.png");
+	public Grass(int x, int y) {
+		super(x,y,300,200,-1);
+	}
+
 	public Grass() {
 	    super(320,240,250 ,200, -1);
 		

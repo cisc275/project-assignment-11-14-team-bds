@@ -7,7 +7,7 @@ import java.util.List;
 public class Fox extends Enemy {
    private int xDir = 0;
    private int yDir = 0;
-   private int distance = 6;
+   private int distance = 2;
    private Bird player;
    private Sprite sprite;
    private List<Sprite> sprites;

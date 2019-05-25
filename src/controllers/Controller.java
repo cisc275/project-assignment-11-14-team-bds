@@ -20,7 +20,7 @@ public class Controller {
 	
 	private final int BIRD_X = 8;
 	private final int BIRD_Y = 10;
-    private final int GAME_DURATION = 15;
+    private final int GAME_DURATION = 65;
     private final int SWITCH_GAME_STATE = 4;
     private final int REQ_STICK_AMOUNT = 3;
 
@@ -48,7 +48,6 @@ public class Controller {
 				setInstance(player, View.RAIL);
 			}
 		);
-		buttons.get(2).addActionListener((e) -> System.exit(0));
 		setKeyListener(this.view);
 	}
 
@@ -132,19 +131,21 @@ public class Controller {
 					case KeyEvent.VK_SPACE:
 						model.dive();
 						break;
-					case KeyEvent.VK_SHIFT:
-						model.place();
-						break;
+					//case KeyEvent.VK_SHIFT:
+					//	model.place();
+					//	break;
 					case KeyEvent.VK_ESCAPE:
 						setInstance(new MenuModel(), View.MENU);
 						break;
-					case KeyEvent.VK_0:
+					case KeyEvent.VK_SHIFT:
 						if (model.getCount() >= REQ_STICK_AMOUNT) {
+							model.place();
 							setInstance(model, View.QUIZ);
 						}
 						break;
 					case KeyEvent.VK_1:
 						setInstance(new OspreyTutorial(), View.OSPREY);
+						break;
 				}
 			}
 			@Override
@@ -166,8 +167,6 @@ public class Controller {
 				case KeyEvent.VK_SPACE:
 					model.unDive();
 					break;
-				case KeyEvent.VK_SHIFT:
-					model.place();
 				}
 			}
 			@Override

@@ -34,14 +34,18 @@ public class Quiz extends Screen{
         this.revalidate();
         this.repaint();
         Question q = questions.get(currentQuestion);
+        JLabel t = new JLabel(q.question);
+        t.setFont(new Font("Sanserif", Font.BOLD, 12));
         this.add(new JLabel(q.question));
         currentAnswers.clear();
         for (String s : q.answers) {
             this.add(buttonFactory(s, (e) -> {
                 if (s.equals(q.correct)){
                     System.out.println("Correct");
+                    setBackground(Color.GREEN);
                 } else {
                     System.out.println("Incorrect");
+                    setBackground(Color.RED);
                 }
                 currentQuestion++;
                 if (currentQuestion >= questions.size()) {
