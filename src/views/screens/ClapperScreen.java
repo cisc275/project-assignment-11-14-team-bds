@@ -22,6 +22,10 @@ public class ClapperScreen extends Screen{
 	private BufferedImage background;
 	Collection<Collidable> entities = new ArrayList<>();
 
+
+
+	private Sprite sprite = new Sprite(1, "res/stick.png");
+
 	Sprite t1 = new Sprite(1,1,"res/ClapperInstro1.png");
 	Sprite t2 = new Sprite(1,1,"res/ClapperInstro2.png");
 	Sprite t3 = new Sprite(1,1,"res/ClapperInstro3.png");

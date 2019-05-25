@@ -35,6 +35,7 @@ public class OspreyLandScreen extends Screen{
 	private Sprite LAKE = new Sprite(1,1,"res/lake.png");
 	private Sprite CLOUD = new Sprite(1,1,"res/Cloud.png");
 	private Sprite OSPREY = new Sprite(4,200, "res/Bird.png");
+
 	private Sprite T1 = new Sprite(1,1,"res/OspreyInstructionMove1.png");
 	private Sprite T2 = new Sprite(1,1,"res/OspreyInstructionMove.png");
 	/*

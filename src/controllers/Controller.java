@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.List;
 
 import javax.swing.*;
@@ -144,7 +146,14 @@ public class Controller {
 						}
 						break;
 					case KeyEvent.VK_1:
-						setInstance(new OspreyTutorial(), View.OSPREY);
+						try {
+							FileOutputStream f = new FileOutputStream("save.ser");
+							ObjectOutputStream o = new ObjectOutputStream(f);
+							o.writeObject(model);
+							o.close();
+						} catch (Exception except) {
+							except.printStackTrace();
+						}
 						break;
 				}
 			}

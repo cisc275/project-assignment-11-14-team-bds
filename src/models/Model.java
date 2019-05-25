@@ -1,10 +1,11 @@
 package models;
 
+import java.io.Serializable;
 import java.util.*;
 import entities.*;
 
 
-public abstract class Model {
+public abstract class Model implements Serializable {
 	protected int WIDTH = 1280;
 	protected int HEIGHT = 760;
 

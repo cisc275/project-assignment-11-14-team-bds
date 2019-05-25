@@ -1,10 +1,11 @@
 package entities;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Collection;
 
-public abstract class Collidable implements Comparable<Collidable> {
+public abstract class Collidable implements Comparable<Collidable>, Serializable {
     protected int xPos;
     protected int yPos;
     protected int width;
