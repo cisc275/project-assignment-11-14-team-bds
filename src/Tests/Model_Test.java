@@ -16,5 +16,12 @@ class Model_Test {
 		c.updateCollidables();
 		assertEquals(c.getEntities() , s);
 	}
+	
+	void test_update2() {
+		OspreyTutorial c = new OspreyTutorial();
+		Collection s = c.getEntities();
+		c.updateCollidables();
+		assertEquals(c.getEntities() , s);
+	}
 
 }

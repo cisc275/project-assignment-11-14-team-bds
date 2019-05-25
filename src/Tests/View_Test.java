@@ -19,14 +19,15 @@ class View_Test {
 	void test() {
 		Marsh marsh1 = new Marsh();
 		BackgroundElement marsh2 = marsh1;
-		Pond pond1 = new Pond();
+		Pond pond1 = new Pond(0, 0);
 		assertEquals(marsh1,marsh2);
 		assertEquals(0,pond1.fish());
 	}
+	
 	@Test
 	void test_hud() {
 		MiniMap map = new MiniMap();
-		Stick sticks = new Stick();
+		Stick sticks = new Stick(0, 0);
 		Powerup powUp = new Powerup();
 		
 		HUD Hud = new HUD(map, sticks, powUp);
